@@ -1,767 +1,1055 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1200" width="1800" height="1200" font-family="Arial, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1500" width="2400" height="1500" font-family="Arial, Helvetica, sans-serif">
   <defs>
-    <!-- Arrow marker -->
-    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#000"/>
+    <!-- Flow arrow markers -->
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
     </marker>
-    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#0066cc"/>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#cc0000"/>
     </marker>
-    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#cc0000"/>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#0055cc"/>
     </marker>
-    <!-- Pump symbol -->
-    <symbol id="pump" viewBox="0 0 30 30">
-      <circle cx="15" cy="15" r="12" fill="none" stroke="#000" stroke-width="1.5"/>
-      <polygon points="8,22 15,8 22,22" fill="none" stroke="#000" stroke-width="1.5"/>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#008800"/>
+    </marker>
+
+    <!-- Circulation pump symbol -->
+    <symbol id="pump" viewBox="0 0 40 40" overflow="visible">
+      <circle cx="20" cy="20" r="14" fill="white" stroke="#000" stroke-width="1.8"/>
+      <polygon points="12,28 20,10 28,28" fill="none" stroke="#000" stroke-width="1.8"/>
     </symbol>
+
     <!-- Temperature sensor symbol -->
-    <symbol id="tempSensor" viewBox="0 0 20 20">
-      <circle cx="10" cy="10" r="7" fill="none" stroke="#000" stroke-width="1.2"/>
-      <text x="10" y="14" text-anchor="middle" font-size="10" font-weight="bold">T</text>
+    <symbol id="tempSensor" viewBox="0 0 24 24" overflow="visible">
+      <circle cx="12" cy="12" r="9" fill="white" stroke="#000" stroke-width="1.5"/>
+      <text x="12" y="16" text-anchor="middle" font-size="13" font-weight="bold" fill="#000">T</text>
     </symbol>
-    <!-- 3-way valve symbol -->
-    <symbol id="valve3way" viewBox="0 0 30 30">
-      <polygon points="5,5 25,15 5,25" fill="none" stroke="#000" stroke-width="1.5"/>
-      <polygon points="25,5 5,15 25,25" fill="none" stroke="#000" stroke-width="1.5"/>
+
+    <!-- 3-way control valve symbol -->
+    <symbol id="valve3way" viewBox="0 0 30 30" overflow="visible">
+      <polygon points="3,5 15,15 3,25" fill="none" stroke="#000" stroke-width="1.5"/>
+      <polygon points="27,5 15,15 27,25" fill="none" stroke="#000" stroke-width="1.5"/>
       <line x1="15" y1="0" x2="15" y2="5" stroke="#000" stroke-width="1.5"/>
+      <circle cx="15" cy="0" r="2" fill="#000"/>
     </symbol>
-    <!-- Isolation valve -->
-    <symbol id="isoValve" viewBox="0 0 20 20">
+
+    <!-- Isolation valve symbol (bowtie) -->
+    <symbol id="isoValve" viewBox="0 0 24 20" overflow="visible">
+      <polygon points="2,2 12,10 2,18" fill="none" stroke="#000" stroke-width="1.5"/>
+      <polygon points="22,2 12,10 22,18" fill="none" stroke="#000" stroke-width="1.5"/>
+    </symbol>
+
+    <!-- Non-return valve symbol -->
+    <symbol id="nrValve" viewBox="0 0 24 20" overflow="visible">
       <polygon points="2,2 18,10 2,18" fill="none" stroke="#000" stroke-width="1.5"/>
-      <polygon points="18,2 2,10 18,18" fill="none" stroke="#000" stroke-width="1.5"/>
+      <line x1="18" y1="2" x2="18" y2="18" stroke="#000" stroke-width="1.8"/>
     </symbol>
-    <!-- Non-return valve -->
-    <symbol id="nrValve" viewBox="0 0 20 20">
-      <polygon points="2,2 18,10 2,18" fill="none" stroke="#000" stroke-width="1.5"/>
-      <line x1="18" y1="2" x2="18" y2="18" stroke="#000" stroke-width="1.5"/>
+
+    <!-- Strainer symbol -->
+    <symbol id="strainer" viewBox="0 0 20 20" overflow="visible">
+      <rect x="1" y="1" width="18" height="18" fill="none" stroke="#000" stroke-width="1.5"/>
+      <line x1="1" y1="1" x2="19" y2="19" stroke="#000" stroke-width="1.5"/>
     </symbol>
-    <!-- Expansion vessel -->
-    <symbol id="expansionVessel" viewBox="0 0 30 40">
-      <rect x="5" y="5" width="20" height="30" rx="3" fill="none" stroke="#000" stroke-width="1.5"/>
-      <line x1="5" y1="20" x2="25" y2="20" stroke="#000" stroke-width="1" stroke-dasharray="3,2"/>
-      <line x1="15" y1="35" x2="15" y2="45" stroke="#000" stroke-width="1.5"/>
+
+    <!-- Expansion vessel symbol -->
+    <symbol id="expansionVessel" viewBox="0 0 40 55" overflow="visible">
+      <rect x="4" y="4" width="32" height="42" rx="4" fill="#f8f8f8" stroke="#000" stroke-width="1.5"/>
+      <line x1="4" y1="25" x2="36" y2="25" stroke="#000" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="20" y1="46" x2="20" y2="55" stroke="#000" stroke-width="1.5"/>
     </symbol>
-    <!-- Strainer -->
-    <symbol id="strainer" viewBox="0 0 20 20">
-      <polygon points="2,2 18,2 18,18 2,18" fill="none" stroke="#000" stroke-width="1.2"/>
-      <line x1="2" y1="2" x2="18" y2="18" stroke="#000" stroke-width="1.2"/>
+
+    <!-- Flex connector -->
+    <symbol id="flexConn" viewBox="0 0 30 12" overflow="visible">
+      <path d="M0,6 Q5,0 10,6 Q15,12 20,6 Q25,0 30,6" fill="none" stroke="#000" stroke-width="1.2"/>
     </symbol>
-    <!-- Heat pump unit box -->
-    <symbol id="hpUnit" viewBox="0 0 400 200">
-      <rect x="0" y="0" width="400" height="200" fill="#f5f5f5" stroke="#000" stroke-width="2" rx="3"/>
-      <!-- Evaporator -->
-      <rect x="30" y="60" width="80" height="80" fill="none" stroke="#0066cc" stroke-width="1.5" rx="2"/>
-      <text x="70" y="95" text-anchor="middle" font-size="9" fill="#0066cc">Evaporator</text>
-      <!-- Condenser -->
-      <rect x="290" y="60" width="80" height="80" fill="none" stroke="#cc0000" stroke-width="1.5" rx="2"/>
-      <text x="330" y="95" text-anchor="middle" font-size="9" fill="#cc0000">Condenser</text>
-      <!-- Internal piping -->
-      <line x1="110" y1="80" x2="290" y2="80" stroke="#000" stroke-width="1"/>
-      <line x1="110" y1="120" x2="290" y2="120" stroke="#000" stroke-width="1"/>
-      <!-- Compressor circle -->
-      <circle cx="200" cy="100" r="25" fill="none" stroke="#000" stroke-width="1.5"/>
-      <text x="200" y="104" text-anchor="middle" font-size="10">COMP</text>
-      <!-- XPRD, EXP labels -->
-      <text x="145" y="55" text-anchor="middle" font-size="8">XPRD</text>
-      <rect x="130" y="40" width="30" height="12" fill="none" stroke="#000" stroke-width="0.8"/>
-      <text x="210" y="55" text-anchor="middle" font-size="8">EXP1</text>
-      <rect x="195" y="40" width="30" height="12" fill="none" stroke="#000" stroke-width="0.8"/>
-      <text x="260" y="55" text-anchor="middle" font-size="8">EXP2</text>
-      <rect x="245" y="40" width="30" height="12" fill="none" stroke="#000" stroke-width="0.8"/>
-      <!-- Defrosting -->
-      <text x="290" y="50" font-size="7" fill="#666">Defrosting PHE</text>
-      <!-- Connection labels on pipes -->
-      <text x="150" y="75" font-size="7">HPP, circuit A</text>
-      <text x="150" y="115" font-size="7">LPP, circuit A</text>
-      <text x="220" y="75" font-size="7">HPP, circuit B</text>
-      <text x="220" y="115" font-size="7">LPP, circuit B</text>
-      <!-- Pipe connections top -->
-      <rect x="130" y="18" width="8" height="8" fill="none" stroke="#000" stroke-width="1"/>
-      <text x="134" y="16" text-anchor="middle" font-size="7">CV3</text>
-      <!-- Fan unit connection bottom -->
-      <line x="30" y1="140" x2="30" y2="190" stroke="#000" stroke-width="1"/>
-      <!-- ST sensors -->
-      <circle cx="50" cy="160" r="5" fill="none" stroke="#000" stroke-width="1"/>
-      <text x="50" y="163" text-anchor="middle" font-size="6">T</text>
-      <text x="62" y="163" font-size="7">ST0</text>
-      <circle cx="340" cy="160" r="5" fill="none" stroke="#000" stroke-width="1"/>
-      <text x="340" y="163" text-anchor="middle" font-size="6">T</text>
-      <text x="352" y="163" font-size="7">ST4</text>
-      <!-- Pipe stubs -->
-      <circle cx="50" cy="180" r="5" fill="none" stroke="#000" stroke-width="1"/>
-      <text x="50" y="183" text-anchor="middle" font-size="6">T</text>
-      <text x="62" y="183" font-size="7">ST3</text>
-      <circle cx="340" cy="180" r="5" fill="none" stroke="#000" stroke-width="1"/>
-      <text x="340" y="183" text-anchor="middle" font-size="6">T</text>
-      <text x="352" y="183" font-size="7">ST2</text>
-      <!-- STS sensors bottom left -->
-      <text x="90" y="195" font-size="7">STS-A</text>
-      <text x="240" y="195" font-size="7">STS-B</text>
+
+    <!-- Plate heat exchanger -->
+    <symbol id="phe" viewBox="0 0 30 40" overflow="visible">
+      <rect x="2" y="2" width="26" height="36" fill="#f0f0f0" stroke="#000" stroke-width="1.5"/>
+      <line x1="8" y1="2" x2="8" y2="38" stroke="#000" stroke-width="0.8"/>
+      <line x1="14" y1="2" x2="14" y2="38" stroke="#000" stroke-width="0.8"/>
+      <line x1="20" y1="2" x2="20" y2="38" stroke="#000" stroke-width="0.8"/>
+    </symbol>
+
+    <!-- Electric heater symbol -->
+    <symbol id="elHeater" viewBox="0 0 30 30" overflow="visible">
+      <rect x="2" y="2" width="26" height="26" fill="#fff0f0" stroke="#cc0000" stroke-width="1.5"/>
+      <path d="M8,8 L12,14 L8,20" fill="none" stroke="#cc0000" stroke-width="1.5"/>
+      <path d="M16,8 L20,14 L16,20" fill="none" stroke="#cc0000" stroke-width="1.5"/>
     </symbol>
   </defs>
 
-  <!-- Background -->
-  <rect width="1800" height="1200" fill="white"/>
+  <!-- ==================== BACKGROUND & BORDER ==================== -->
+  <rect width="2400" height="1500" fill="white"/>
+  <rect x="4" y="4" width="2392" height="1492" fill="none" stroke="#000" stroke-width="2"/>
+  <rect x="8" y="8" width="2384" height="1484" fill="none" stroke="#000" stroke-width="0.5"/>
 
-  <!-- Border -->
-  <rect x="5" y="5" width="1790" height="1190" fill="none" stroke="#000" stroke-width="2"/>
-  <rect x="10" y="10" width="1780" height="1180" fill="none" stroke="#000" stroke-width="0.5"/>
-
-  <!-- Subject to printing errors note -->
-  <text x="20" y="25" font-size="8" fill="#666">Subject to possible printing errors.</text>
-
-  <!-- ==================== TITLE BLOCK (top center) ==================== -->
-  <rect x="500" y="15" width="500" height="55" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="510" y="30" font-size="9" font-weight="bold">Information</text>
-  <text x="510" y="42" font-size="10" font-weight="bold">Q162-192LB4, multiple heat pumps, heating &amp; DHW, thermal store</text>
-  <text x="510" y="54" font-size="10" font-weight="bold">with DHW coils, DHW system control, pool system control</text>
-
-  <!-- ==================== BAS3 Controller (top center) ==================== -->
-  <rect x="350" y="80" width="80" height="30" fill="#e8e8e8" stroke="#000" stroke-width="1.5" rx="2"/>
-  <text x="390" y="100" text-anchor="middle" font-size="12" font-weight="bold">BAS3</text>
-
-  <!-- TCP/IP connections from BAS3 -->
-  <line x1="350" y1="95" x2="20" y2="95" stroke="#0066cc" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="180" y="88" font-size="8" fill="#0066cc">TCP/IP</text>
-  <line x1="430" y1="95" x2="1050" y2="95" stroke="#0066cc" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- Green reference lines (like in original drawing) -->
+  <line x1="8" y1="120" x2="2392" y2="120" stroke="#88cc88" stroke-width="0.3"/>
+  <line x1="8" y1="750" x2="2392" y2="750" stroke="#88cc88" stroke-width="0.3"/>
 
   <!-- ==================== I/O SIGNAL TABLES (top) ==================== -->
-  <!-- Master I/O Table (left) -->
-  <rect x="20" y="105" width="310" height="190" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
-  <text x="25" y="120" font-size="7" font-weight="bold">MASTER I/O Signals</text>
-  <text x="25" y="132" font-size="6">DI (Op. resp. compr. 1, HP05) ── DO (start/stop compr. 1, HP06)</text>
-  <text x="25" y="142" font-size="6">DI (Op. resp. compr. 2, HP05) ── DO (start/stop compr. 2, HP06)</text>
-  <text x="25" y="152" font-size="6">DI (Op. resp. compr. 3, HP05) ── DO (start/stop compr. 3, HP06)</text>
-  <text x="25" y="162" font-size="6">DI (Op. resp. compr. 4, HP05) ── DO (start/stop compr. 4, HP06)</text>
-  <text x="25" y="172" font-size="6">AI (HP02-SPH1-B1) ── AO (control HP02-CV31)</text>
-  <text x="25" y="182" font-size="6">AI (temp sensor, STS-A) ── AO (control HP01-FU)</text>
-  <text x="25" y="192" font-size="6">AI (temp sensor, STS-B) ── AO (vacant)</text>
-  <text x="25" y="202" font-size="6">AI (temp sensor, LThW-ST10) ── DO (Start/stop HP01-P2)</text>
-  <text x="25" y="212" font-size="6">AI (temp sensor, LThW-ST42) ── DO (Start/stop HP02-P0)</text>
-  <text x="25" y="222" font-size="6">AI (temp sensor, ST-OUTSIDE) ── DO (Start/stop LThW-P1)</text>
-  <text x="25" y="232" font-size="6">DI (allocated for SSH HP01-P0) ── AO (control LThW-DHI)</text>
-  <text x="25" y="242" font-size="6">AI (temp sensor, HP01-ST10) ── DO (Pressstat. Ref. circuit A)</text>
-  <text x="25" y="252" font-size="6"> ── DI (Pressstat. Ref. circuit B)</text>
-  <text x="25" y="262" font-size="6">AI (temp sensor, ST1) ── DO HP01-SV1/2x, circuit A (L.P.)</text>
-  <text x="25" y="272" font-size="6">AI (temp sensor, ST2) ── DO HP01-SV1/2x, circuit B (L.P.)</text>
-  <text x="25" y="282" font-size="6">AI (temp sensor, ST3) ── DO (Reserve, internal function)</text>
-  <text x="25" y="292" font-size="6">RTU (control HP01-P0) ── AO (allocated for HP01-CV30)</text>
-
-  <!-- Slave I/O Table (right of master) -->
-  <rect x="340" y="105" width="310" height="190" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
-  <text x="345" y="120" font-size="7" font-weight="bold">SLAVE I/O Signals</text>
-  <text x="345" y="132" font-size="6">DO (start/stop compr. 1, HP05) ── DO (Start/stop HP02-P2)</text>
-  <text x="345" y="142" font-size="6">DO (start/stop compr. 2, HP05) ── DO (Start/stop HP02-P0)</text>
-  <text x="345" y="152" font-size="6">DO (start/stop compr. 3, HP05) ── DO (vacant)</text>
-  <text x="345" y="162" font-size="6">DO (start/stop compr. 4, HP05) ── DO (vacant)</text>
-  <text x="345" y="172" font-size="6">AI (vacant) ── AO (control HP02-CV31)</text>
-  <text x="345" y="182" font-size="6">DI (allocated for SSH HP02-P0)</text>
-  <text x="345" y="192" font-size="6">AI (temp sensor, HP02-ST10)</text>
-  <text x="345" y="202" font-size="6">AI (temp sensor, ST11) ── DO HP02-SV1/2x, circuit A (L.P.)</text>
-  <text x="345" y="212" font-size="6">AI (temp sensor, ST12) ── DO HP02-SV1/2x, circuit B (L.P.)</text>
-  <text x="345" y="222" font-size="6">AI (temp sensor, ST21) ── DO (Reserve, internal function)</text>
-  <text x="345" y="232" font-size="6">AI (temp sensor, ST41) ── DO (Power suppl. contr. signal)</text>
-  <text x="345" y="242" font-size="6">DI (Power suppl. contr. signal) ── AO (allocated for HP02-CV30)</text>
-  <text x="345" y="252" font-size="6">AO (allocated for control valve) ── AO (allocated for control valve)</text>
-  <text x="345" y="262" font-size="6">DI (External alarm/blocking) ── AO (allocated for circulation pump)</text>
-  <text x="345" y="272" font-size="6">RTU (control HP02-P0)</text>
-
-  <!-- Modbus labels -->
-  <text x="25" y="300" font-size="7" fill="#0066cc">RTU</text>
-  <text x="170" y="300" font-size="7" fill="#0066cc">TCP/IP</text>
-  <text x="345" y="300" font-size="7" fill="#0066cc">RTU</text>
-  <text x="500" y="300" font-size="7" fill="#0066cc">TCP/IP</text>
-
-  <!-- ==================== AI/DHW signal table ==================== -->
-  <rect x="660" y="105" width="310" height="140" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
-  <text x="665" y="120" font-size="7" font-weight="bold">DHW / Additional I/O</text>
-  <text x="665" y="132" font-size="6">AI (DHW-ST10) ── DO (start/stop DHW-R01)</text>
-  <text x="665" y="142" font-size="6">AI (DHW-ST41) ── DO (start/stop DHW-R02)</text>
-  <text x="665" y="152" font-size="6">AI (PS01-ST11) ── DO (start/stop DHW-R03)</text>
-  <text x="665" y="162" font-size="6">AI (PS01-ST41) ── DO (start/stop DHW-H4)</text>
-  <text x="665" y="172" font-size="6">AI (Reserve) ── AO (control DHW-CV31)</text>
-  <text x="665" y="182" font-size="6">AI (Reserve) ── AO (control LThW-P2)</text>
-  <text x="665" y="192" font-size="6">AI (Reserve) ── AO (Reserve)</text>
-  <text x="665" y="202" font-size="6">AI (Reserve) ── AO (Reserve)</text>
-
-  <!-- Modbus note -->
-  <rect x="660" y="248" width="310" height="50" fill="#fff8e0" stroke="#000" stroke-width="0.5"/>
-  <text x="665" y="262" font-size="7" font-weight="bold">IF MODBUS IS NOT APPLICABLE:</text>
-  <text x="665" y="272" font-size="6">AO3 EXP2 is allocated for -P1 (speed control)</text>
-  <text x="665" y="282" font-size="6">AO4 EXP1 is allocated for -P1 (speed control)</text>
-  <text x="665" y="292" font-size="6">DI5 EXP2 is allocated for -P1.4 -P2 (Gen. alarm)</text>
-
-  <!-- ==================== HP02 (SLAVE) ==================== -->
-  <g transform="translate(100,340)">
-    <!-- HP02 Box -->
-    <rect x="0" y="0" width="440" height="220" fill="#f0f0f5" stroke="#000" stroke-width="2" rx="4"/>
-    <text x="160" y="235" text-anchor="middle" font-size="11" font-weight="bold">HP02 (SLAVE)</text>
-    <text x="160" y="248" text-anchor="middle" font-size="10">Q162-192LB4</text>
-
-    <!-- Evaporator -->
-    <rect x="20" y="70" width="90" height="90" fill="#e0e8ff" stroke="#0066cc" stroke-width="1.5" rx="3"/>
-    <text x="65" y="105" text-anchor="middle" font-size="9" fill="#0066cc">Evaporator</text>
-
-    <!-- Condenser -->
-    <rect x="320" y="70" width="90" height="90" fill="#ffe0e0" stroke="#cc0000" stroke-width="1.5" rx="3"/>
-    <text x="365" y="105" text-anchor="middle" font-size="9" fill="#cc0000">Condenser</text>
-
-    <!-- Internal components -->
-    <line x1="110" y1="95" x2="320" y2="95" stroke="#000" stroke-width="1"/>
-    <line x1="110" y1="135" x2="320" y2="135" stroke="#000" stroke-width="1"/>
-
-    <!-- Compressor -->
-    <circle cx="215" cy="115" r="28" fill="#f8f8f8" stroke="#000" stroke-width="1.5"/>
-    <text x="215" y="119" text-anchor="middle" font-size="9" font-weight="bold">COMP</text>
-
-    <!-- XPRD, EXP1, EXP2 modules -->
-    <rect x="130" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="150" y="37" text-anchor="middle" font-size="7">XPRD</text>
-    <rect x="195" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="215" y="37" text-anchor="middle" font-size="7">EXP1</text>
-    <rect x="260" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="280" y="37" text-anchor="middle" font-size="7">EXP2</text>
-
-    <!-- Defrosting PHE -->
-    <rect x="330" y="25" width="70" height="18" fill="#ffeedd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="365" y="37" text-anchor="middle" font-size="7">Defrosting PHE</text>
-
-    <!-- CV3 valve -->
-    <text x="115" y="20" font-size="7">CV3</text>
-    <use href="#valve3way" x="105" y="7" width="20" height="20"/>
-
-    <!-- Pressure circuit labels -->
-    <text x="135" y="90" font-size="6">HPP, circuit A</text>
-    <text x="135" y="130" font-size="6">LPP, circuit A</text>
-    <text x="240" y="90" font-size="6">HPP, circuit B</text>
-    <text x="240" y="130" font-size="6">LPP, circuit B</text>
-
-    <!-- Temperature sensors -->
-    <circle cx="45" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="45" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="58" y="178" font-size="7">ST0</text>
-
-    <circle cx="95" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="95" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="108" y="178" font-size="7">ST1</text>
-
-    <circle cx="265" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="265" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="278" y="178" font-size="7">ST2</text>
-
-    <circle cx="345" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="345" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="358" y="178" font-size="7">ST4</text>
-
-    <circle cx="395" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="395" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="408" y="178" font-size="7">ST3</text>
-
-    <!-- STS sensors -->
-    <text x="110" y="210" font-size="7">STS-A</text>
-    <text x="280" y="210" font-size="7">STS-B</text>
-
-    <!-- Pipe connections (stubs going out) -->
-    <line x1="65" y1="160" x2="65" y2="70" stroke="#0066cc" stroke-width="2"/>
-    <line x1="365" y1="160" x2="365" y2="70" stroke="#cc0000" stroke-width="2"/>
+  <!-- Master HP01 signals (top left) -->
+  <g transform="translate(15,15)">
+    <text x="0" y="12" font-size="7" fill="#666">AI (temp sensor, STA1) ─── DO (Power suppl. contr. signal)</text>
+    <text x="0" y="22" font-size="7" fill="#666">AI (temp sensor, STB) ──── AO (allocated for HP02-CV30)</text>
+    <text x="0" y="32" font-size="7" fill="#666">AI (temp sensor, HP01-ST10) ── AO (allocated for control valve)</text>
+    <text x="0" y="42" font-size="7" fill="#666">AI (temp sensor, ST1) ──── AO (allocated for control valve)</text>
+    <text x="0" y="52" font-size="7" fill="#666">DI (Power suppl. contr. signal) ── AO (allocated for circulation pump)</text>
+    <text x="0" y="62" font-size="7" fill="#666">DI (External alarm/blocking) ── AO (allocated for circulation pump)</text>
   </g>
 
-  <!-- Fan Unit HP02-FU -->
-  <rect x="20" y="395" width="70" height="35" fill="#e8f4e8" stroke="#000" stroke-width="1" rx="3"/>
-  <text x="55" y="410" text-anchor="middle" font-size="7">Fan Unit</text>
-  <text x="55" y="420" text-anchor="middle" font-size="7" font-weight="bold">HP02-FU</text>
-  <line x1="90" y1="412" x2="100" y2="412" stroke="#000" stroke-width="1.5"/>
-
-  <!-- Expansion Vessel HP02 -->
-  <rect x="25" y="440" width="40" height="50" fill="none" stroke="#000" stroke-width="1.2" rx="3"/>
-  <line x1="25" y1="465" x2="65" y2="465" stroke="#000" stroke-width="0.8" stroke-dasharray="3,2"/>
-  <text x="45" y="458" text-anchor="middle" font-size="6">Exp.</text>
-  <text x="45" y="500" text-anchor="middle" font-size="7">Expansion</text>
-  <text x="45" y="510" text-anchor="middle" font-size="7">Vessel</text>
-
-  <!-- Refilling valve HP02 -->
-  <text x="80" y="460" font-size="7">Refilling</text>
-
-  <!-- HP02 Circulation components -->
-  <circle cx="120" cy="480" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="113,487 120,473 127,487" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="120" y="500" text-anchor="middle" font-size="7">HP02-P1</text>
-
-  <!-- HP01-P2 / HP02-CV32 -->
-  <text x="130" y="530" font-size="7">HP01-P2</text>
-  <text x="130" y="540" font-size="7">HP02-CV32</text>
-
-  <!-- Pipe connections (DN65) -->
-  <text x="100" y="555" font-size="7" fill="#666">Pipe conn.</text>
-  <text x="100" y="565" font-size="7" fill="#666">DN65</text>
-
-  <!-- ST-OUTSIDE sensor -->
-  <rect x="15" y="550" width="70" height="20" fill="#f0f0f0" stroke="#000" stroke-width="0.8"/>
-  <text x="50" y="563" text-anchor="middle" font-size="7">ST-OUTSIDE</text>
-
-  <!-- DM06 -->
-  <text x="20" y="590" font-size="8">DM06</text>
-
-  <!-- 2x60 Amp label -->
-  <text x="120" y="590" font-size="8" font-weight="bold">2x60 Amp</text>
-
-  <!-- ==================== HP01 (MASTER) ==================== -->
-  <g transform="translate(100,640)">
-    <!-- HP01 Box -->
-    <rect x="0" y="0" width="440" height="220" fill="#f5f0f0" stroke="#000" stroke-width="2" rx="4"/>
-    <text x="160" y="235" text-anchor="middle" font-size="11" font-weight="bold">HP01 (MASTER)</text>
-    <text x="160" y="248" text-anchor="middle" font-size="10">Q162-192LB4</text>
-
-    <!-- Evaporator -->
-    <rect x="20" y="70" width="90" height="90" fill="#e0e8ff" stroke="#0066cc" stroke-width="1.5" rx="3"/>
-    <text x="65" y="105" text-anchor="middle" font-size="9" fill="#0066cc">Evaporator</text>
-
-    <!-- Condenser -->
-    <rect x="320" y="70" width="90" height="90" fill="#ffe0e0" stroke="#cc0000" stroke-width="1.5" rx="3"/>
-    <text x="365" y="105" text-anchor="middle" font-size="9" fill="#cc0000">Condenser</text>
-
-    <!-- Internal components -->
-    <line x1="110" y1="95" x2="320" y2="95" stroke="#000" stroke-width="1"/>
-    <line x1="110" y1="135" x2="320" y2="135" stroke="#000" stroke-width="1"/>
-
-    <!-- Compressor -->
-    <circle cx="215" cy="115" r="28" fill="#f8f8f8" stroke="#000" stroke-width="1.5"/>
-    <text x="215" y="119" text-anchor="middle" font-size="9" font-weight="bold">COMP</text>
-
-    <!-- XPRD, EXP1, EXP2 modules -->
-    <rect x="130" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="150" y="37" text-anchor="middle" font-size="7">XPRD</text>
-    <rect x="195" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="215" y="37" text-anchor="middle" font-size="7">EXP1</text>
-    <rect x="260" y="25" width="40" height="18" fill="#ddd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="280" y="37" text-anchor="middle" font-size="7">EXP2</text>
-
-    <!-- Defrosting PHE -->
-    <rect x="330" y="25" width="70" height="18" fill="#ffeedd" stroke="#000" stroke-width="0.8" rx="2"/>
-    <text x="365" y="37" text-anchor="middle" font-size="7">Defrosting PHE</text>
-
-    <!-- CV3 valve -->
-    <text x="115" y="20" font-size="7">CV3</text>
-    <use href="#valve3way" x="105" y="7" width="20" height="20"/>
-
-    <!-- Pressure circuit labels -->
-    <text x="135" y="90" font-size="6">HPP, circuit A</text>
-    <text x="135" y="130" font-size="6">LPP, circuit A</text>
-    <text x="240" y="90" font-size="6">HPP, circuit B</text>
-    <text x="240" y="130" font-size="6">LPP, circuit B</text>
-
-    <!-- Temperature sensors -->
-    <circle cx="45" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="45" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="58" y="178" font-size="7">ST0</text>
-
-    <circle cx="95" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="95" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="108" y="178" font-size="7">ST1</text>
-
-    <circle cx="265" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="265" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="278" y="178" font-size="7">ST2</text>
-
-    <circle cx="345" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="345" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="358" y="178" font-size="7">ST4</text>
-
-    <circle cx="395" cy="175" r="6" fill="none" stroke="#000" stroke-width="1"/>
-    <text x="395" y="178" text-anchor="middle" font-size="7">T</text>
-    <text x="408" y="178" font-size="7">ST3</text>
-
-    <!-- STS sensors -->
-    <text x="110" y="210" font-size="7">STS-A</text>
-    <text x="280" y="210" font-size="7">STS-B</text>
-
-    <!-- Pipe connections -->
-    <line x1="65" y1="160" x2="65" y2="70" stroke="#0066cc" stroke-width="2"/>
-    <line x1="365" y1="160" x2="365" y2="70" stroke="#cc0000" stroke-width="2"/>
+  <!-- Slave HP02 signals (top center-left) -->
+  <g transform="translate(380,15)">
+    <text x="0" y="12" font-size="7" fill="#666">AI (temp sensor, STA1) ─── DO (Power suppl. contr. signal)</text>
+    <text x="0" y="22" font-size="7" fill="#666">AI (temp sensor, STB) ──── AO (allocated for HP02-CV30)</text>
+    <text x="0" y="32" font-size="7" fill="#666">AI (temp sensor, HP02-ST10) ── AO (allocated for control valve)</text>
+    <text x="0" y="42" font-size="7" fill="#666">AI (temp sensor, HP02-ST51) ── AO (allocated for control valve)</text>
+    <text x="0" y="52" font-size="7" fill="#666">DI (Power suppl. contr. signal) ── AO (allocated for circulation pump)</text>
+    <text x="0" y="62" font-size="7" fill="#666">DI (External alarm/blocking) ── AO (allocated for circulation pump)</text>
   </g>
 
-  <!-- Fan Unit HP01-FU -->
-  <rect x="20" y="695" width="70" height="35" fill="#e8f4e8" stroke="#000" stroke-width="1" rx="3"/>
-  <text x="55" y="710" text-anchor="middle" font-size="7">Fan Unit</text>
-  <text x="55" y="720" text-anchor="middle" font-size="7" font-weight="bold">HP01-FU</text>
-  <line x1="90" y1="712" x2="100" y2="712" stroke="#000" stroke-width="1.5"/>
+  <!-- BAS3 Controller -->
+  <g transform="translate(330,78)">
+    <rect x="0" y="0" width="55" height="25" fill="#e8e8e8" stroke="#000" stroke-width="1.2" rx="2"/>
+    <text x="27" y="17" text-anchor="middle" font-size="10" font-weight="bold">RTU</text>
+  </g>
+  <g transform="translate(600,78)">
+    <rect x="0" y="0" width="55" height="25" fill="#e8e8e8" stroke="#000" stroke-width="1.2" rx="2"/>
+    <text x="27" y="17" text-anchor="middle" font-size="10" font-weight="bold">RTU</text>
+  </g>
 
-  <!-- Expansion Vessel HP01 -->
-  <rect x="25" y="740" width="40" height="50" fill="none" stroke="#000" stroke-width="1.2" rx="3"/>
-  <line x1="25" y1="765" x2="65" y2="765" stroke="#000" stroke-width="0.8" stroke-dasharray="3,2"/>
-  <text x="45" y="758" text-anchor="middle" font-size="6">Exp.</text>
-  <text x="45" y="800" text-anchor="middle" font-size="7">Expansion</text>
-  <text x="45" y="810" text-anchor="middle" font-size="7">Vessel</text>
+  <!-- TCP/IP horizontal bus line -->
+  <line x1="15" y1="90" x2="380" y2="90" stroke="#000" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="385" y1="90" x2="600" y2="90" stroke="#000" stroke-width="1" stroke-dasharray="6,3"/>
+  <line x1="655" y1="90" x2="900" y2="90" stroke="#000" stroke-width="1" stroke-dasharray="6,3"/>
 
-  <!-- Refilling HP01 -->
-  <text x="80" y="760" font-size="7">Refilling</text>
+  <!-- Master I/O Table (left block) -->
+  <g transform="translate(15,105)">
+    <rect x="0" y="0" width="340" height="185" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
+    <text x="5" y="14" font-size="7.5" font-weight="bold">HP01 (MASTER) I/O</text>
+    <text x="5" y="26" font-size="6.5">AI (DHW-ST10) ────── DO (start/stop DHW-R01)</text>
+    <text x="5" y="36" font-size="6.5">AI (DHW-ST41) ────── DO (start/stop DHW-R02)</text>
+    <text x="5" y="46" font-size="6.5">AI (PS01-ST11) ───── DO (start/stop DHW-R03)</text>
+    <text x="5" y="56" font-size="6.5">AI (PS01-ST41) ───── DO (start/stop DHW-H4)</text>
+    <text x="5" y="66" font-size="6.5">AI (Reserve) ──────── AO (control DHW-CV31)</text>
+    <text x="5" y="76" font-size="6.5">AI (Reserve) ──────── AO (control LThW-P2)</text>
+    <text x="5" y="86" font-size="6.5">AI (Reserve) ──────── AO (Reserve)</text>
+    <text x="5" y="96" font-size="6.5">AI (Reserve) ──────── AO (Reserve)</text>
+    <text x="5" y="116" font-size="6.5">DI (Op. resp. compr. 1) ── DO (start/stop compr. 1)</text>
+    <text x="5" y="126" font-size="6.5">DI (Op. resp. compr. 2) ── DO (start/stop compr. 2)</text>
+    <text x="5" y="136" font-size="6.5">DI (Op. resp. compr. 3) ── DO (start/stop compr. 3)</text>
+    <text x="5" y="146" font-size="6.5">DI (Op. resp. compr. 4) ── DO (start/stop compr. 4)</text>
+    <text x="5" y="156" font-size="6.5">AI (HP01-SPH1-B1) ── AO (control HP01-CV31)</text>
+    <text x="5" y="166" font-size="6.5">AI (temp sensor, STS-A) ── AO (control HP01-FU)</text>
+    <text x="5" y="176" font-size="6.5">AI (temp sensor, STS-B) ── AO (vacant)</text>
+  </g>
 
-  <!-- HP01 Circulation pump -->
-  <circle cx="120" cy="780" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="113,787 120,773 127,787" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="120" y="800" text-anchor="middle" font-size="7">HP01-P1</text>
-  <text x="130" y="830" font-size="7">HP01-P2</text>
-  <text x="130" y="840" font-size="7">HP01-CV32</text>
+  <!-- Slave I/O Table -->
+  <g transform="translate(365,105)">
+    <rect x="0" y="0" width="340" height="185" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
+    <text x="5" y="14" font-size="7.5" font-weight="bold">HP02 (SLAVE) I/O</text>
+    <text x="5" y="26" font-size="6.5">AI (temp sensor, LThW-ST10) ── DO (Start/stop HP01-P2)</text>
+    <text x="5" y="36" font-size="6.5">AI (temp sensor, LThW-ST42) ── DO (Start/stop HP02-P0)</text>
+    <text x="5" y="46" font-size="6.5">AI (temp sensor, ST-OUTSIDE) ── DO (Start/stop LThW-P1)</text>
+    <text x="5" y="56" font-size="6.5">DI (allocated for SSH HP01-P0) ── AO (control LThW-DHI)</text>
+    <text x="5" y="66" font-size="6.5">AI (temp sensor, HP01-ST10) ── DO (Pressstat circuit A)</text>
+    <text x="5" y="76" font-size="6.5">DI (Pressstat circuit B)</text>
+    <text x="5" y="86" font-size="6.5">AI (temp sensor, ST1) ── DO HP01-SV1/2x circuit A</text>
+    <text x="5" y="96" font-size="6.5">AI (temp sensor, ST2) ── DO HP01-SV1/2x circuit B</text>
+    <text x="5" y="116" font-size="6.5">DO (start/stop compr. 1) ── DO (Start/stop HP02-P2)</text>
+    <text x="5" y="126" font-size="6.5">DO (start/stop compr. 2) ── DO (Start/stop HP02-P0)</text>
+    <text x="5" y="136" font-size="6.5">DI (allocated for SSH HP02-P0)</text>
+    <text x="5" y="146" font-size="6.5">AI (temp sensor, HP02-ST10)</text>
+    <text x="5" y="156" font-size="6.5">AI (temp sensor, ST11) ── DO HP02-SV1/2x circuit A</text>
+    <text x="5" y="166" font-size="6.5">AI (temp sensor, ST12) ── DO HP02-SV1/2x circuit B</text>
+    <text x="5" y="176" font-size="6.5">RTU (control HP02-P0)</text>
+  </g>
 
-  <!-- DM06 and amp label -->
-  <text x="20" y="890" font-size="8">DM06</text>
-  <text x="120" y="890" font-size="8" font-weight="bold">2x60 Amp</text>
+  <!-- IF MODBUS IS NOT APPLICABLE note -->
+  <g transform="translate(720,105)">
+    <rect x="0" y="0" width="280" height="70" fill="#fff8e0" stroke="#000" stroke-width="0.8"/>
+    <text x="5" y="14" font-size="7.5" font-weight="bold" fill="#cc0000">IF MODBUS IS NOT APPLICABLE:</text>
+    <text x="5" y="28" font-size="6.5">- AO3 (EXP2) is allocated for -P1 (speed control)</text>
+    <text x="5" y="40" font-size="6.5">- AO4 (EXP1) is allocated for -P1 (speed control)</text>
+    <text x="5" y="52" font-size="6.5">- DI5 (EXP2) is allocated for -P1.4 -P2 (Gen. alarm)</text>
+    <text x="5" y="64" font-size="6.5">- DO1 (EXP2) is allocated for -P2 control signal</text>
+  </g>
+  <text x="720" y="190" font-size="7">Same setup for both Master and Slave heat pumps.</text>
 
-  <!-- HP01 output connections -->
-  <text x="540" y="895" font-size="7">HP01-P1</text>
-  <text x="540" y="907" font-size="7">HP01-P2</text>
-  <text x="540" y="919" font-size="7" font-weight="bold">Fan Unit</text>
-  <line x1="540" y1="880" x2="540" y2="860" stroke="#cc0000" stroke-width="2"/>
-  <text x="545" y="870" font-size="7" fill="#666">DM65</text>
+  <!-- ===================================================================================== -->
+  <!-- ==================== HP02 (SLAVE) - UPPER HEAT PUMP ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="hp02-slave">
+    <!-- Dashed boundary box (blue) -->
+    <rect x="95" y="310" width="560" height="350" fill="none" stroke="#0055cc" stroke-width="1.5" stroke-dasharray="8,4" rx="4"/>
 
-  <!-- HP02 output connections -->
-  <text x="540" y="585" font-size="7">HP02-P1</text>
-  <text x="540" y="597" font-size="7">HP02-P2</text>
-  <text x="540" y="609" font-size="7" font-weight="bold">Fan Unit</text>
+    <!-- Fan Unit HP02-FU -->
+    <g transform="translate(20,340)">
+      <rect x="0" y="0" width="65" height="80" fill="#f0f0f0" stroke="#000" stroke-width="1.5" rx="3"/>
+      <!-- Fan circles -->
+      <circle cx="32" cy="22" r="14" fill="none" stroke="#000" stroke-width="1"/>
+      <circle cx="32" cy="55" r="14" fill="none" stroke="#000" stroke-width="1"/>
+      <!-- Fan blades -->
+      <line x1="22" y1="12" x2="42" y2="32" stroke="#000" stroke-width="0.8"/>
+      <line x1="42" y1="12" x2="22" y2="32" stroke="#000" stroke-width="0.8"/>
+      <line x1="22" y1="45" x2="42" y2="65" stroke="#000" stroke-width="0.8"/>
+      <line x1="42" y1="45" x2="22" y2="65" stroke="#000" stroke-width="0.8"/>
+      <text x="32" y="95" text-anchor="middle" font-size="7.5">Fan Unit</text>
+      <text x="32" y="105" text-anchor="middle" font-size="7.5" font-weight="bold">HP02-FU</text>
+    </g>
 
-  <!-- ==================== MAIN PIPING - Hot side (condenser to buffer) ==================== -->
-  <!-- HP02 hot pipe to right -->
-  <line x1="540" y1="480" x2="700" y2="480" stroke="#cc0000" stroke-width="2.5"/>
-  <!-- HP01 hot pipe to right -->
-  <line x1="540" y1="780" x2="700" y2="780" stroke="#cc0000" stroke-width="2.5"/>
-  <!-- Vertical hot riser -->
-  <line x1="700" y1="480" x2="700" y2="780" stroke="#cc0000" stroke-width="2.5"/>
+    <!-- Expansion Vessel HP02 -->
+    <g transform="translate(107,345)">
+      <use href="#expansionVessel" x="0" y="0" width="32" height="44"/>
+      <text x="16" y="-5" text-anchor="middle" font-size="7">Expansion</text>
+      <text x="16" y="58" text-anchor="middle" font-size="7">Vessel</text>
+      <text x="42" y="25" font-size="7">Refilling</text>
+    </g>
 
-  <!-- HP02 cold return -->
-  <line x1="540" y1="520" x2="720" y2="520" stroke="#0066cc" stroke-width="2.5"/>
-  <!-- HP01 cold return -->
-  <line x1="540" y1="820" x2="720" y2="820" stroke="#0066cc" stroke-width="2.5"/>
-  <!-- Vertical cold riser -->
-  <line x1="720" y1="520" x2="720" y2="820" stroke="#0066cc" stroke-width="2.5"/>
+    <!-- HP02-CV32 valve -->
+    <g transform="translate(148,430)">
+      <use href="#isoValve" x="0" y="0" width="18" height="14"/>
+      <text x="25" y="10" font-size="7">HP02-</text>
+      <text x="25" y="20" font-size="7">CV32</text>
+    </g>
 
-  <!-- LThW sensors on vertical pipes -->
-  <circle cx="700" cy="530" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="700" y="533" text-anchor="middle" font-size="7">T</text>
-  <text x="714" y="533" font-size="7">LThW-ST12</text>
+    <!-- HP02-P2 circulation pump -->
+    <g transform="translate(148,460)">
+      <use href="#pump" x="0" y="0" width="28" height="28"/>
+      <text x="35" y="18" font-size="7" font-weight="bold">HP02-P2</text>
+    </g>
 
-  <circle cx="720" cy="570" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="720" y="573" text-anchor="middle" font-size="7">T</text>
-  <text x="734" y="573" font-size="7">HP02-CV31</text>
+    <!-- Green evaporator-side pipe (left) -->
+    <line x1="90" y1="380" x2="110" y2="380" stroke="#008800" stroke-width="2.5"/>
+    <line x1="90" y1="420" x2="110" y2="420" stroke="#008800" stroke-width="2.5"/>
 
-  <!-- LThW-P2 pump on vertical -->
-  <circle cx="700" cy="620" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="693,627 700,613 707,627" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="670" y="633" font-size="7">LThW-</text>
-  <text x="670" y="643" font-size="7">P2</text>
+    <!-- Flex connection label -->
+    <text x="165" y="510" font-size="7" fill="#666">Flex conn.</text>
 
-  <!-- LThW-P1 -->
-  <circle cx="720" cy="680" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="713,687 720,673 727,687" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="735" y="683" font-size="7">LThW-P1</text>
+    <!-- Main HP02 unit box -->
+    <rect x="200" y="320" width="440" height="300" fill="#f8f8f8" stroke="#000" stroke-width="2" rx="4"/>
 
-  <!-- ==================== HEATING BUFFER ==================== -->
-  <rect x="790" y="500" width="90" height="140" fill="#ffe8cc" stroke="#000" stroke-width="2" rx="5"/>
-  <text x="835" y="555" text-anchor="middle" font-size="9" font-weight="bold">HEATING</text>
-  <text x="835" y="568" text-anchor="middle" font-size="9" font-weight="bold">BUFFER</text>
+    <!-- HP02 internal: CV3 valve (top left) -->
+    <g transform="translate(220,325)">
+      <rect x="0" y="0" width="30" height="20" fill="none" stroke="#000" stroke-width="1"/>
+      <text x="15" y="14" text-anchor="middle" font-size="8">CV3</text>
+      <text x="15" y="-4" text-anchor="middle" font-size="7">CV3</text>
+    </g>
 
-  <!-- Heating buffer connections -->
-  <line x1="700" y1="530" x2="790" y2="530" stroke="#cc0000" stroke-width="2"/>
-  <line x1="720" y1="620" x2="790" y2="620" stroke="#0066cc" stroke-width="2"/>
+    <!-- HP02 XPRD, EXP1, EXP2 modules (top) -->
+    <g transform="translate(325,325)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">XPRD</text>
+    </g>
+    <g transform="translate(380,325)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">EXP1</text>
+    </g>
+    <g transform="translate(435,325)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">EXP2</text>
+    </g>
 
-  <!-- Expansion Vessel for buffer -->
-  <rect x="830" y="650" width="30" height="40" fill="none" stroke="#000" stroke-width="1" rx="2"/>
-  <line x1="830" y1="670" x2="860" y2="670" stroke="#000" stroke-width="0.7" stroke-dasharray="2,2"/>
-  <text x="845" y="700" text-anchor="middle" font-size="7">Expansion</text>
-  <text x="845" y="710" text-anchor="middle" font-size="7">Vessel</text>
-  <line x1="845" y1="640" x2="845" y2="650" stroke="#000" stroke-width="1"/>
+    <!-- Defrosting PHE -->
+    <g transform="translate(500,330)">
+      <rect x="0" y="0" width="60" height="22" fill="#ffeedd" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="30" y="14" text-anchor="middle" font-size="7">Defrosting PHE</text>
+    </g>
 
-  <!-- ==================== HEATING SECONDARY SYSTEM ==================== -->
-  <rect x="920" y="420" width="20" height="260" fill="#ffddcc" stroke="#000" stroke-width="1.5"/>
-  <text x="950" y="470" font-size="9" font-weight="bold" transform="rotate(90,950,470)">HEATING SECONDARY SYSTEM</text>
+    <!-- Evaporator (blue box, left side of HP) -->
+    <rect x="230" y="420" width="95" height="100" fill="#e0e8ff" stroke="#0055cc" stroke-width="1.8" rx="4"/>
+    <text x="278" y="475" text-anchor="middle" font-size="9" fill="#0055cc" font-weight="bold">Evaporator</text>
 
-  <!-- Heating secondary pipe connections -->
-  <line x1="880" y1="500" x2="920" y2="500" stroke="#cc0000" stroke-width="2"/>
-  <line x1="880" y1="640" x2="920" y2="640" stroke="#0066cc" stroke-width="2"/>
-  <line x1="940" y1="500" x2="980" y2="500" stroke="#cc0000" stroke-width="2"/>
-  <line x1="940" y1="640" x2="980" y2="640" stroke="#0066cc" stroke-width="2"/>
+    <!-- Condenser (red box, right side of HP) -->
+    <rect x="505" y="420" width="95" height="100" fill="#ffe0e0" stroke="#cc0000" stroke-width="1.8" rx="4"/>
+    <text x="553" y="475" text-anchor="middle" font-size="9" fill="#cc0000" font-weight="bold">Condenser</text>
 
-  <!-- LThW sensors near buffer -->
-  <circle cx="850" cy="500" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="850" y="503" text-anchor="middle" font-size="7">T</text>
-  <text x="820" y="495" font-size="7">LThW-</text>
-  <text x="820" y="505" font-size="7">ST11</text>
+    <!-- Internal high pressure pipes -->
+    <line x1="325" y1="445" x2="505" y2="445" stroke="#000" stroke-width="1.2"/>
+    <line x1="325" y1="495" x2="505" y2="495" stroke="#000" stroke-width="1.2"/>
 
-  <circle cx="850" cy="450" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="850" y="453" text-anchor="middle" font-size="7">T</text>
-  <text x="820" y="445" font-size="7">LThW-</text>
-  <text x="820" y="455" font-size="7">ST41</text>
+    <!-- HPP/LPP circuit labels -->
+    <text x="340" y="440" font-size="6.5">HPP, circuit A</text>
+    <text x="340" y="490" font-size="6.5">LPP, circuit A</text>
+    <text x="430" y="440" font-size="6.5">HPP, circuit B</text>
+    <text x="430" y="490" font-size="6.5">LPP, circuit B</text>
 
-  <!-- LThW-CV31 valve -->
-  <text x="870" y="440" font-size="7">LThW-</text>
-  <text x="870" y="450" font-size="7">CV31</text>
+    <!-- Compressor circle -->
+    <circle cx="415" cy="470" r="30" fill="white" stroke="#000" stroke-width="2"/>
+    <text x="415" y="467" text-anchor="middle" font-size="8">COMP</text>
+    <text x="415" y="478" text-anchor="middle" font-size="7">(x4)</text>
 
-  <!-- Eh label -->
-  <rect x="890" y="460" width="20" height="20" fill="#fcc" stroke="#000" stroke-width="1"/>
-  <text x="900" y="474" text-anchor="middle" font-size="7">Eh</text>
+    <!-- STS-A, STS-B suction temp sensors -->
+    <g transform="translate(260,535)">
+      <rect x="0" y="0" width="50" height="14" fill="none" stroke="#000" stroke-width="0.8"/>
+      <text x="25" y="11" text-anchor="middle" font-size="7">STS-A</text>
+    </g>
+    <g transform="translate(440,535)">
+      <rect x="0" y="0" width="50" height="14" fill="none" stroke="#000" stroke-width="0.8"/>
+      <text x="25" y="11" text-anchor="middle" font-size="7">STS-B</text>
+    </g>
 
-  <!-- ==================== SPACE HEATING PIPING ==================== -->
-  <rect x="1000" y="340" width="20" height="340" fill="#ffcccc" stroke="#cc0000" stroke-width="1.5"/>
-  <text x="1030" y="440" font-size="9" font-weight="bold" fill="#cc0000" transform="rotate(90,1030,440)">SPACE HEATING PIPING</text>
+    <!-- Temperature sensors on pipes -->
+    <g transform="translate(235,555)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST0</text>
+    </g>
+    <g transform="translate(310,555)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST1</text>
+    </g>
+    <g transform="translate(455,555)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST2</text>
+    </g>
+    <g transform="translate(545,555)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST4</text>
+    </g>
+    <g transform="translate(575,575)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST3</text>
+    </g>
 
-  <!-- ==================== DHW PRIORITY ==================== -->
-  <rect x="1070" y="130" width="20" height="250" fill="#cce0ff" stroke="#0066cc" stroke-width="1.5"/>
-  <text x="1100" y="220" font-size="9" font-weight="bold" fill="#0066cc" transform="rotate(90,1100,220)">DHW PRIORITY</text>
+    <!-- Evaporator pipe stubs (green, going left) -->
+    <line x1="200" y1="445" x2="230" y2="445" stroke="#008800" stroke-width="2"/>
+    <line x1="200" y1="495" x2="230" y2="495" stroke="#008800" stroke-width="2"/>
 
-  <!-- ==================== POOL SYSTEM ==================== -->
-  <rect x="1120" y="200" width="130" height="120" fill="#e0f0ff" stroke="#000" stroke-width="1.5" rx="5"/>
-  <text x="1130" y="225" font-size="8" font-weight="bold">POOL SYSTEM</text>
+    <!-- Condenser pipe stubs (red/blue going right) -->
+    <line x1="600" y1="445" x2="640" y2="445" stroke="#cc0000" stroke-width="2.5"/>
+    <line x1="600" y1="495" x2="640" y2="495" stroke="#0055cc" stroke-width="2.5"/>
 
-  <!-- Pool sensors -->
-  <text x="1130" y="245" font-size="7">PS01-ST11</text>
-  <circle cx="1200" cy="241" r="6" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1200" y="244" text-anchor="middle" font-size="7">T</text>
+    <!-- Flex connectors on condenser side -->
+    <text x="612" y="438" font-size="6" fill="#666">Flex conn.</text>
 
-  <text x="1130" y="270" font-size="7">PS01-ST41</text>
-  <circle cx="1200" cy="266" r="6" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1200" y="269" text-anchor="middle" font-size="7">T</text>
+    <!-- Labels for HP02 box -->
+    <text x="420" y="638" text-anchor="middle" font-size="12" font-weight="bold">HP02 (SLAVE)</text>
+    <text x="420" y="652" text-anchor="middle" font-size="10">Q.162-192LB4</text>
 
-  <text x="1130" y="295" font-size="7">PS01-P1</text>
-  <circle cx="1200" cy="291" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="1193,298 1200,284 1207,298" fill="none" stroke="#000" stroke-width="1.2"/>
+    <!-- 2x80 Amp power connection -->
+    <text x="215" y="635" font-size="8">2x80 Amp</text>
+    <path d="M270,630 L310,630" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
 
-  <!-- PHE label -->
-  <text x="1175" y="215" font-size="7">PHE</text>
+    <!-- DM65 pipe label -->
+    <text x="620" y="510" font-size="7" fill="#666">DM65</text>
 
-  <!-- Modbus TCP/IP to pool -->
-  <line x1="1120" y1="330" x2="1120" y2="350" stroke="#009900" stroke-width="1.5" stroke-dasharray="4,3"/>
-  <text x="1125" y="345" font-size="7" fill="#009900">Modbus TCP/IP</text>
+    <!-- Output labels -->
+    <text x="650" y="570" font-size="7" font-weight="bold">HP02-P1</text>
+    <text x="650" y="582" font-size="7">HP02-P2</text>
+    <text x="650" y="594" font-size="7">Fan Unit</text>
+    <path d="M648,560 L648,600" stroke="#000" stroke-width="0.5"/>
+  </g>
 
+  <!-- ===================================================================================== -->
+  <!-- ==================== HP01 (MASTER) - LOWER HEAT PUMP ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="hp01-master">
+    <!-- Dashed boundary box (green) -->
+    <rect x="95" y="700" width="560" height="350" fill="none" stroke="#008800" stroke-width="1.5" stroke-dasharray="8,4" rx="4"/>
+
+    <!-- Fan Unit HP01-FU -->
+    <g transform="translate(20,730)">
+      <rect x="0" y="0" width="65" height="80" fill="#f0f0f0" stroke="#000" stroke-width="1.5" rx="3"/>
+      <circle cx="32" cy="22" r="14" fill="none" stroke="#000" stroke-width="1"/>
+      <circle cx="32" cy="55" r="14" fill="none" stroke="#000" stroke-width="1"/>
+      <line x1="22" y1="12" x2="42" y2="32" stroke="#000" stroke-width="0.8"/>
+      <line x1="42" y1="12" x2="22" y2="32" stroke="#000" stroke-width="0.8"/>
+      <line x1="22" y1="45" x2="42" y2="65" stroke="#000" stroke-width="0.8"/>
+      <line x1="42" y1="45" x2="22" y2="65" stroke="#000" stroke-width="0.8"/>
+      <text x="32" y="95" text-anchor="middle" font-size="7.5">Fan Unit</text>
+      <text x="32" y="105" text-anchor="middle" font-size="7.5" font-weight="bold">HP01-FU</text>
+    </g>
+
+    <!-- Expansion Vessel HP01 -->
+    <g transform="translate(107,735)">
+      <use href="#expansionVessel" x="0" y="0" width="32" height="44"/>
+      <text x="16" y="-5" text-anchor="middle" font-size="7">Expansion</text>
+      <text x="16" y="58" text-anchor="middle" font-size="7">Vessel</text>
+      <text x="42" y="25" font-size="7">Refilling</text>
+    </g>
+
+    <!-- HP01-CV32 valve -->
+    <g transform="translate(148,820)">
+      <use href="#isoValve" x="0" y="0" width="18" height="14"/>
+      <text x="25" y="10" font-size="7">HP01-</text>
+      <text x="25" y="20" font-size="7">CV32</text>
+    </g>
+
+    <!-- HP01-P2 circulation pump -->
+    <g transform="translate(148,850)">
+      <use href="#pump" x="0" y="0" width="28" height="28"/>
+      <text x="35" y="18" font-size="7" font-weight="bold">HP01-P2</text>
+    </g>
+
+    <!-- Green evaporator-side pipe (left) -->
+    <line x1="90" y1="770" x2="110" y2="770" stroke="#008800" stroke-width="2.5"/>
+    <line x1="90" y1="810" x2="110" y2="810" stroke="#008800" stroke-width="2.5"/>
+
+    <!-- Flex connection label -->
+    <text x="165" y="900" font-size="7" fill="#666">Flex conn.</text>
+
+    <!-- Main HP01 unit box -->
+    <rect x="200" y="710" width="440" height="300" fill="#f8f8f8" stroke="#000" stroke-width="2" rx="4"/>
+
+    <!-- HP01 internal: CV3 valve -->
+    <g transform="translate(220,715)">
+      <rect x="0" y="0" width="30" height="20" fill="none" stroke="#000" stroke-width="1"/>
+      <text x="15" y="14" text-anchor="middle" font-size="8">CV3</text>
+    </g>
+
+    <!-- HP01 XPRD, EXP1, EXP2 modules -->
+    <g transform="translate(325,715)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">XPRD</text>
+    </g>
+    <g transform="translate(380,715)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">EXP1</text>
+    </g>
+    <g transform="translate(435,715)">
+      <rect x="0" y="0" width="38" height="20" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="19" y="13" text-anchor="middle" font-size="7">EXP2</text>
+    </g>
+
+    <!-- Defrosting PHE -->
+    <g transform="translate(500,720)">
+      <rect x="0" y="0" width="60" height="22" fill="#ffeedd" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="30" y="14" text-anchor="middle" font-size="7">Defrosting PHE</text>
+    </g>
+
+    <!-- Evaporator -->
+    <rect x="230" y="810" width="95" height="100" fill="#e0e8ff" stroke="#0055cc" stroke-width="1.8" rx="4"/>
+    <text x="278" y="865" text-anchor="middle" font-size="9" fill="#0055cc" font-weight="bold">Evaporator</text>
+
+    <!-- Condenser -->
+    <rect x="505" y="810" width="95" height="100" fill="#ffe0e0" stroke="#cc0000" stroke-width="1.8" rx="4"/>
+    <text x="553" y="865" text-anchor="middle" font-size="9" fill="#cc0000" font-weight="bold">Condenser</text>
+
+    <!-- Internal pipes -->
+    <line x1="325" y1="835" x2="505" y2="835" stroke="#000" stroke-width="1.2"/>
+    <line x1="325" y1="885" x2="505" y2="885" stroke="#000" stroke-width="1.2"/>
+
+    <!-- HPP/LPP labels -->
+    <text x="340" y="830" font-size="6.5">HPP, circuit A</text>
+    <text x="340" y="880" font-size="6.5">LPP, circuit A</text>
+    <text x="430" y="830" font-size="6.5">HPP, circuit B</text>
+    <text x="430" y="880" font-size="6.5">LPP, circuit B</text>
+
+    <!-- Compressor -->
+    <circle cx="415" cy="860" r="30" fill="white" stroke="#000" stroke-width="2"/>
+    <text x="415" y="857" text-anchor="middle" font-size="8">COMP</text>
+    <text x="415" y="868" text-anchor="middle" font-size="7">(x4)</text>
+
+    <!-- STS sensors -->
+    <g transform="translate(260,925)">
+      <rect x="0" y="0" width="50" height="14" fill="none" stroke="#000" stroke-width="0.8"/>
+      <text x="25" y="11" text-anchor="middle" font-size="7">STS-A</text>
+    </g>
+    <g transform="translate(440,925)">
+      <rect x="0" y="0" width="50" height="14" fill="none" stroke="#000" stroke-width="0.8"/>
+      <text x="25" y="11" text-anchor="middle" font-size="7">STS-B</text>
+    </g>
+
+    <!-- Temperature sensors -->
+    <g transform="translate(235,945)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST0</text>
+    </g>
+    <g transform="translate(310,945)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST1</text>
+    </g>
+    <g transform="translate(455,945)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST2</text>
+    </g>
+    <g transform="translate(545,945)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST4</text>
+    </g>
+    <g transform="translate(575,965)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="20" y="12" font-size="7">ST3</text>
+    </g>
+
+    <!-- Evaporator pipe stubs -->
+    <line x1="200" y1="835" x2="230" y2="835" stroke="#008800" stroke-width="2"/>
+    <line x1="200" y1="885" x2="230" y2="885" stroke="#008800" stroke-width="2"/>
+
+    <!-- Condenser pipe stubs -->
+    <line x1="600" y1="835" x2="640" y2="835" stroke="#cc0000" stroke-width="2.5"/>
+    <line x1="600" y1="885" x2="640" y2="885" stroke="#0055cc" stroke-width="2.5"/>
+
+    <text x="612" y="828" font-size="6" fill="#666">Flex conn.</text>
+
+    <!-- Labels -->
+    <text x="420" y="1028" text-anchor="middle" font-size="12" font-weight="bold">HP01 (MASTER)</text>
+    <text x="420" y="1042" text-anchor="middle" font-size="10">Q.162-192LB4</text>
+
+    <text x="215" y="1025" font-size="8">2x80 Amp</text>
+    <path d="M270,1020 L310,1020" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+    <text x="620" y="900" font-size="7" fill="#666">DM65</text>
+
+    <!-- Output labels -->
+    <text x="650" y="960" font-size="7" font-weight="bold">HP01-P1</text>
+    <text x="650" y="972" font-size="7">HP01-P2</text>
+    <text x="650" y="984" font-size="7">Fan Unit</text>
+  </g>
+
+  <!-- ST-OUTSIDE sensor (left side, between both units) -->
+  <g transform="translate(15,665)">
+    <rect x="0" y="0" width="75" height="22" fill="#f0f0f0" stroke="#000" stroke-width="0.8" rx="2"/>
+    <text x="37" y="15" text-anchor="middle" font-size="7" font-weight="bold">ST-OUTSIDE</text>
+  </g>
+
+  <!-- DM06 label between units -->
+  <text x="170" y="678" font-size="7" fill="#666">DM06</text>
+
+  <!-- ===================================================================================== -->
+  <!-- ==================== MAIN PIPING NETWORK ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="main-piping">
+    <!-- HP02 condenser hot supply (red) going right -->
+    <line x1="640" y1="445" x2="730" y2="445" stroke="#cc0000" stroke-width="2.5"/>
+
+    <!-- HP02 condenser cold return (blue) going right -->
+    <line x1="640" y1="495" x2="730" y2="495" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- HP02-CV31 3-way valve on hot pipe -->
+    <g transform="translate(700,432)">
+      <use href="#valve3way" x="0" y="0" width="22" height="22"/>
+      <text x="25" y="8" font-size="7">HP02-</text>
+      <text x="25" y="18" font-size="7">CV31</text>
+    </g>
+
+    <!-- HP02-ST10 sensor -->
+    <g transform="translate(680,500)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="-5" y="25" font-size="7">HP02-ST10</text>
+    </g>
+
+    <!-- Vertical hot riser (red) from HP02 down -->
+    <line x1="730" y1="445" x2="730" y2="835" stroke="#cc0000" stroke-width="2.5"/>
+
+    <!-- Vertical cold riser (blue) from HP02 down -->
+    <line x1="750" y1="495" x2="750" y2="885" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- HP01 condenser hot supply connecting to riser -->
+    <line x1="640" y1="835" x2="730" y2="835" stroke="#cc0000" stroke-width="2.5"/>
+
+    <!-- HP01 condenser cold return connecting to riser -->
+    <line x1="640" y1="885" x2="750" y2="885" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- HP01-CV31 3-way valve -->
+    <g transform="translate(700,822)">
+      <use href="#valve3way" x="0" y="0" width="22" height="22"/>
+      <text x="25" y="8" font-size="7">HP01-</text>
+      <text x="25" y="18" font-size="7">CV31</text>
+    </g>
+
+    <!-- HP01-ST10 sensor -->
+    <g transform="translate(680,890)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="-5" y="25" font-size="7">HP01-ST10</text>
+    </g>
+
+    <!-- Hot pipe from riser to right (toward buffers) -->
+    <line x1="730" y1="600" x2="850" y2="600" stroke="#cc0000" stroke-width="2.5"/>
+
+    <!-- Cold return pipe from right -->
+    <line x1="750" y1="650" x2="850" y2="650" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- LThW-P2 pump on hot supply to buffer -->
+    <g transform="translate(775,586)">
+      <use href="#pump" x="0" y="0" width="28" height="28"/>
+      <text x="-10" y="-5" font-size="7">LThW-</text>
+      <text x="-10" y="40" font-size="7">P2</text>
+    </g>
+
+    <!-- LThW-ST12 sensor -->
+    <g transform="translate(800,560)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">LThW-</text>
+      <text x="18" y="15" font-size="7">ST12</text>
+    </g>
+
+    <!-- Non-return valve on hot pipe -->
+    <g transform="translate(820,594)">
+      <use href="#nrValve" x="0" y="0" width="16" height="12"/>
+    </g>
+
+    <!-- LThW-P1 pump on cold return -->
+    <g transform="translate(775,636)">
+      <use href="#pump" x="0" y="0" width="28" height="28"/>
+      <text x="35" y="18" font-size="7">LThW-P1</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================================== -->
+  <!-- ==================== HEATING BUFFERS ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="heating-buffers">
+    <!-- Heating Buffer 1 (left) -->
+    <rect x="860" y="490" width="80" height="220" fill="#ffe8cc" stroke="#000" stroke-width="2" rx="8"/>
+    <text x="900" y="580" text-anchor="middle" font-size="9" font-weight="bold">HEATING</text>
+    <text x="900" y="595" text-anchor="middle" font-size="9" font-weight="bold">BUFFER</text>
+
+    <!-- Internal coil representation -->
+    <path d="M880,520 Q895,515 910,520 Q925,525 940,520" fill="none" stroke="#cc0000" stroke-width="1" stroke-dasharray="3,2"/>
+    <path d="M880,680 Q895,685 910,680 Q925,675 940,680" fill="none" stroke="#0055cc" stroke-width="1" stroke-dasharray="3,2"/>
+
+    <!-- Hot supply in -->
+    <line x1="850" y1="520" x2="860" y2="520" stroke="#cc0000" stroke-width="2.5"/>
+    <!-- Cold return out -->
+    <line x1="850" y1="680" x2="860" y2="680" stroke="#0055cc" stroke-width="2.5"/>
+    <!-- Connect to main pipes -->
+    <line x1="850" y1="520" x2="850" y2="600" stroke="#cc0000" stroke-width="2.5"/>
+    <line x1="850" y1="650" x2="850" y2="680" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- Temperature sensor on buffer -->
+    <g transform="translate(870,510)">
+      <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+    </g>
+    <g transform="translate(870,690)">
+      <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+    </g>
+
+    <!-- Heating Buffer 2 (right) -->
+    <rect x="960" y="490" width="80" height="220" fill="#ffe8cc" stroke="#000" stroke-width="2" rx="8"/>
+    <text x="1000" y="580" text-anchor="middle" font-size="9" font-weight="bold">HEATING</text>
+    <text x="1000" y="595" text-anchor="middle" font-size="9" font-weight="bold">BUFFER</text>
+
+    <!-- Connections between buffers -->
+    <line x1="940" y1="520" x2="960" y2="520" stroke="#cc0000" stroke-width="2"/>
+    <line x1="940" y1="680" x2="960" y2="680" stroke="#0055cc" stroke-width="2"/>
+
+    <!-- Right side connections from buffer 2 -->
+    <line x1="1040" y1="520" x2="1080" y2="520" stroke="#cc0000" stroke-width="2.5"/>
+    <line x1="1040" y1="680" x2="1080" y2="680" stroke="#0055cc" stroke-width="2.5"/>
+
+    <!-- Expansion Vessel for heating -->
+    <g transform="translate(1010,720)">
+      <use href="#expansionVessel" x="0" y="0" width="28" height="38"/>
+      <text x="14" y="52" text-anchor="middle" font-size="6.5">Expansion</text>
+      <text x="14" y="62" text-anchor="middle" font-size="6.5">Vessel</text>
+    </g>
+    <line x1="1024" y1="710" x2="1024" y2="720" stroke="#000" stroke-width="1"/>
+  </g>
+
+  <!-- ===================================================================================== -->
+  <!-- ==================== LThW SYSTEM (right of buffers) ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="lthw-system">
+    <!-- LThW-CV31 3-way valve -->
+    <g transform="translate(1085,507)">
+      <use href="#valve3way" x="0" y="0" width="22" height="22"/>
+      <text x="0" y="-5" font-size="7">LThW-</text>
+      <text x="0" y="35" font-size="7">CV31</text>
+    </g>
+
+    <!-- LThW-ST11 sensor -->
+    <g transform="translate(1110,530)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">LThW-</text>
+      <text x="18" y="15" font-size="7">ST11</text>
+    </g>
+
+    <!-- Electric heater (Eh) -->
+    <g transform="translate(1100,560)">
+      <rect x="0" y="0" width="26" height="26" fill="#fff0f0" stroke="#cc0000" stroke-width="1.5" rx="2"/>
+      <path d="M6,6 L10,13 L6,20" fill="none" stroke="#cc0000" stroke-width="1.2"/>
+      <path d="M14,6 L18,13 L14,20" fill="none" stroke="#cc0000" stroke-width="1.2"/>
+      <text x="32" y="10" font-size="7">LThW-</text>
+      <text x="32" y="20" font-size="7">EH</text>
+    </g>
+
+    <!-- LThW-ST41 sensor -->
+    <g transform="translate(1110,600)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">LThW-</text>
+      <text x="18" y="15" font-size="7">ST41</text>
+    </g>
+
+    <!-- Vertical LThW pipe (hot, going to DHW/space heating) -->
+    <line x1="1100" y1="520" x2="1100" y2="680" stroke="#cc0000" stroke-width="2"/>
+
+    <!-- LThW return pipe -->
+    <line x1="1120" y1="520" x2="1120" y2="680" stroke="#0055cc" stroke-width="2"/>
+
+    <!-- Space heating branch right -->
+    <line x1="1100" y1="560" x2="1180" y2="560" stroke="#cc0000" stroke-width="2"/>
+    <line x1="1120" y1="640" x2="1180" y2="640" stroke="#0055cc" stroke-width="2"/>
+
+    <!-- LThW-STA1 sensor near top -->
+    <g transform="translate(1100,490)">
+      <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+      <text x="16" y="5" font-size="7">LThW-</text>
+      <text x="16" y="14" font-size="7">STA1</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================================== -->
+  <!-- ==================== SPACE HEATING / SECONDARY SYSTEM ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="space-heating">
+    <!-- Vertical space heating pipe pair -->
+    <line x1="1185" y1="400" x2="1185" y2="700" stroke="#ff6600" stroke-width="3"/>
+    <text x="1190" y="420" font-size="7" fill="#ff6600" font-weight="bold">LTHW-</text>
+    <text x="1190" y="432" font-size="7" fill="#ff6600" font-weight="bold">SUPPLY</text>
+
+    <line x1="1205" y1="400" x2="1205" y2="700" stroke="#0088cc" stroke-width="3"/>
+    <text x="1210" y="420" font-size="7" fill="#0088cc" font-weight="bold">LTHW-</text>
+    <text x="1210" y="432" font-size="7" fill="#0088cc" font-weight="bold">RETURN</text>
+  </g>
+
+  <!-- ===================================================================================== -->
+  <!-- ==================== POOL SYSTEM (top right area) ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="pool-system">
+    <rect x="1250" y="240" width="170" height="150" fill="#e0f0ff" stroke="#0055cc" stroke-width="1.5" rx="5"/>
+    <text x="1335" y="260" text-anchor="middle" font-size="10" font-weight="bold">POOL SYSTEM</text>
+
+    <!-- PHE in pool -->
+    <g transform="translate(1280,275)">
+      <use href="#phe" x="0" y="0" width="28" height="35"/>
+      <text x="35" y="20" font-size="7">PHE</text>
+    </g>
+
+    <!-- PS01-ST11 sensor -->
+    <g transform="translate(1340,275)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="6" font-size="7">PS01-ST11</text>
+    </g>
+
+    <!-- PS01-ST41 sensor -->
+    <g transform="translate(1340,310)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="6" font-size="7">PS01-ST41</text>
+    </g>
+
+    <!-- PS01-P1 pump -->
+    <g transform="translate(1290,340)">
+      <use href="#pump" x="0" y="0" width="24" height="24"/>
+      <text x="30" y="16" font-size="7">PS01-P1</text>
+    </g>
+
+    <!-- Pool system connection pipe down -->
+    <line x1="1185" y1="400" x2="1270" y2="290" stroke="#ff6600" stroke-width="1.5"/>
+    <line x1="1205" y1="400" x2="1270" y2="340" stroke="#0088cc" stroke-width="1.5"/>
+
+    <!-- Modbus connection -->
+    <line x1="1250" y1="390" x2="1250" y2="410" stroke="#009900" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="1255" y="405" font-size="7" fill="#009900">Modbus RTU</text>
+  </g>
+
+  <!-- ===================================================================================== -->
   <!-- ==================== DHW SYSTEM ==================== -->
-  <rect x="1100" y="420" width="20" height="460" fill="#cce0ff" stroke="#0066cc" stroke-width="1.5"/>
-  <text x="1130" y="600" font-size="9" font-weight="bold" fill="#0066cc" transform="rotate(90,1130,600)">DHW SYSTEM</text>
+  <!-- ===================================================================================== -->
+  <g id="dhw-system">
+    <!-- DHW branch from main supply -->
+    <line x1="1185" y1="560" x2="1280" y2="560" stroke="#ff6600" stroke-width="2"/>
+    <line x1="1205" y1="640" x2="1280" y2="640" stroke="#0088cc" stroke-width="2"/>
 
-  <!-- DHW Cylinder 1 (top) -->
-  <rect x="1160" y="430" width="110" height="160" fill="#e8f0ff" stroke="#000" stroke-width="2" rx="8"/>
-  <text x="1215" y="505" text-anchor="middle" font-size="10" font-weight="bold">DHW</text>
-  <text x="1215" y="520" text-anchor="middle" font-size="10" font-weight="bold">CYLINDER</text>
+    <!-- DHW-CV31 3-way valve -->
+    <g transform="translate(1240,548)">
+      <use href="#valve3way" x="0" y="0" width="20" height="20"/>
+      <text x="0" y="-5" font-size="7">DHW-CV31</text>
+    </g>
 
-  <!-- DHW coils inside cylinder 1 -->
-  <path d="M1180,460 Q1200,470 1180,480 Q1200,490 1180,500 Q1200,510 1180,520 Q1200,530 1180,540 Q1200,550 1180,560" fill="none" stroke="#cc0000" stroke-width="1.5"/>
-  <path d="M1240,460 Q1220,470 1240,480 Q1220,490 1240,500 Q1220,510 1240,520 Q1220,530 1240,540 Q1220,550 1240,560" fill="none" stroke="#cc0000" stroke-width="1.5"/>
+    <!-- DHW-ST11 sensor -->
+    <g transform="translate(1260,505)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">DHW-</text>
+      <text x="18" y="15" font-size="7">ST11</text>
+    </g>
 
-  <!-- DHW sensors and components -->
-  <circle cx="1300" cy="450" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1300" y="453" text-anchor="middle" font-size="7">T</text>
-  <text x="1315" y="453" font-size="7">DHW-</text>
-  <text x="1315" y="463" font-size="7">ST11</text>
+    <!-- DHW supply vertical to cylinders -->
+    <line x1="1285" y1="480" x2="1285" y2="700" stroke="#ff6600" stroke-width="2"/>
+    <line x1="1305" y1="480" x2="1305" y2="700" stroke="#0088cc" stroke-width="2"/>
 
-  <!-- DHW-CV31 -->
-  <text x="1280" y="430" font-size="7">DHW-CV31</text>
+    <!-- DHW-P1 pump -->
+    <g transform="translate(1270,654)">
+      <use href="#pump" x="0" y="0" width="24" height="24"/>
+      <text x="30" y="16" font-size="7">DHW-P1</text>
+    </g>
 
-  <!-- DHW-ST41 -->
-  <circle cx="1300" cy="510" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1300" y="513" text-anchor="middle" font-size="7">T</text>
-  <text x="1315" y="513" font-size="7">DHW-</text>
-  <text x="1315" y="523" font-size="7">ST41</text>
+    <!-- ==================== DHW Cylinder 1 (upper) ==================== -->
+    <g transform="translate(1350,430)">
+      <!-- Cylinder body (tall orange tank) -->
+      <rect x="0" y="0" width="70" height="150" fill="#ff8844" stroke="#cc4400" stroke-width="2" rx="10"/>
+      <rect x="5" y="5" width="60" height="140" fill="#ffaa66" stroke="none" rx="8"/>
 
-  <!-- DHW-P1 -->
-  <circle cx="1300" cy="560" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="1293,567 1300,553 1307,567" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="1315" y="563" font-size="7">DHW-P1</text>
+      <!-- Coil representations inside -->
+      <path d="M15,25 Q25,20 35,25 Q45,30 55,25" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,45 Q25,40 35,45 Q45,50 55,45" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,65 Q25,60 35,65 Q45,70 55,65" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,85 Q25,80 35,85 Q45,90 55,85" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,105 Q25,100 35,105 Q45,110 55,105" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,125 Q25,120 35,125 Q45,130 55,125" fill="none" stroke="white" stroke-width="1.5"/>
 
-  <!-- HP02 DHW connection labels -->
-  <text x="1160" y="420" font-size="7">HP02-</text>
-  <text x="1160" y="430" font-size="7">ST31</text>
+      <text x="35" y="-8" text-anchor="middle" font-size="8" font-weight="bold">DHW CYLINDER</text>
+    </g>
 
-  <text x="1250" y="420" font-size="7">HP02-</text>
-  <text x="1250" y="430" font-size="7">ST21</text>
+    <!-- DHW supply pipes to cylinder 1 -->
+    <line x1="1285" y1="485" x2="1350" y2="485" stroke="#ff6600" stroke-width="2"/>
+    <line x1="1285" y1="545" x2="1350" y2="545" stroke="#0088cc" stroke-width="2"/>
 
-  <!-- DHW Cylinder 2 (bottom - HP01) -->
-  <rect x="1160" y="710" width="110" height="160" fill="#e8f0ff" stroke="#000" stroke-width="2" rx="8"/>
-  <text x="1215" y="785" text-anchor="middle" font-size="10" font-weight="bold">DHW</text>
-  <text x="1215" y="800" text-anchor="middle" font-size="10" font-weight="bold">CYLINDER</text>
+    <!-- HP02-ST31 sensor near cylinder 1 -->
+    <g transform="translate(1330,442)">
+      <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+      <text x="-35" y="5" font-size="6.5">HP02-</text>
+      <text x="-35" y="14" font-size="6.5">ST31</text>
+    </g>
 
-  <!-- DHW coils inside cylinder 2 -->
-  <path d="M1180,740 Q1200,750 1180,760 Q1200,770 1180,780 Q1200,790 1180,800 Q1200,810 1180,820 Q1200,830 1180,840" fill="none" stroke="#cc0000" stroke-width="1.5"/>
-  <path d="M1240,740 Q1220,750 1240,760 Q1220,770 1240,780 Q1220,790 1240,800 Q1220,810 1240,820 Q1220,830 1240,840" fill="none" stroke="#cc0000" stroke-width="1.5"/>
+    <!-- DHW-ST41 sensor -->
+    <g transform="translate(1425,470)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">DHW-</text>
+      <text x="18" y="15" font-size="7">ST41</text>
+    </g>
 
-  <!-- HP01 DHW sensors -->
-  <text x="1160" y="700" font-size="7">HP01-</text>
-  <text x="1160" y="710" font-size="7">ST31</text>
+    <!-- ==================== DHW Cylinder 2 (lower / HP01 side) ==================== -->
+    <g transform="translate(1350,640)">
+      <!-- Cylinder body -->
+      <rect x="0" y="0" width="70" height="150" fill="#ff8844" stroke="#cc4400" stroke-width="2" rx="10"/>
+      <rect x="5" y="5" width="60" height="140" fill="#ffaa66" stroke="none" rx="8"/>
 
-  <circle cx="1300" cy="740" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1300" y="743" text-anchor="middle" font-size="7">T</text>
-  <text x="1315" y="743" font-size="7">DHW-</text>
-  <text x="1315" y="753" font-size="7">H1</text>
+      <!-- Coils -->
+      <path d="M15,25 Q25,20 35,25 Q45,30 55,25" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,45 Q25,40 35,45 Q45,50 55,45" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,65 Q25,60 35,65 Q45,70 55,65" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,85 Q25,80 35,85 Q45,90 55,85" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,105 Q25,100 35,105 Q45,110 55,105" fill="none" stroke="white" stroke-width="1.5"/>
+      <path d="M15,125 Q25,120 35,125 Q45,130 55,125" fill="none" stroke="white" stroke-width="1.5"/>
 
-  <circle cx="1300" cy="800" r="7" fill="none" stroke="#000" stroke-width="1"/>
-  <text x="1300" y="803" text-anchor="middle" font-size="7">T</text>
-  <text x="1315" y="803" font-size="7">DHW-</text>
-  <text x="1315" y="813" font-size="7">H2</text>
+      <text x="35" y="-8" text-anchor="middle" font-size="8" font-weight="bold">DHW CYLINDER</text>
+    </g>
 
-  <!-- GAP20 -->
-  <rect x="1280" y="870" width="40" height="15" fill="#ddd" stroke="#000" stroke-width="0.8"/>
-  <text x="1300" y="881" text-anchor="middle" font-size="7">GAP20</text>
+    <!-- DHW supply pipes to cylinder 2 -->
+    <line x1="1285" y1="695" x2="1350" y2="695" stroke="#ff6600" stroke-width="2"/>
+    <line x1="1285" y1="755" x2="1350" y2="755" stroke="#0088cc" stroke-width="2"/>
 
-  <!-- Piping between DHW cylinders -->
-  <line x1="1215" y1="590" x2="1215" y2="710" stroke="#cc0000" stroke-width="2"/>
-  <line x1="1270" y1="590" x2="1270" y2="710" stroke="#0066cc" stroke-width="2"/>
+    <!-- HP01-ST31 sensor near cylinder 2 -->
+    <g transform="translate(1330,652)">
+      <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+      <text x="-35" y="5" font-size="6.5">HP01-</text>
+      <text x="-35" y="14" font-size="6.5">ST31</text>
+    </g>
 
+    <!-- DHW-H1 sensor on right of cylinder 2 -->
+    <g transform="translate(1425,680)">
+      <use href="#tempSensor" x="0" y="0" width="16" height="16"/>
+      <text x="18" y="5" font-size="7">DHW-</text>
+      <text x="18" y="15" font-size="7">ST1</text>
+    </g>
+
+    <!-- Connection pipes between cylinders -->
+    <line x1="1370" y1="580" x2="1370" y2="640" stroke="#ff6600" stroke-width="1.5"/>
+    <line x1="1400" y1="580" x2="1400" y2="640" stroke="#0088cc" stroke-width="1.5"/>
+
+    <!-- GAP20 label -->
+    <g transform="translate(1380,800)">
+      <rect x="0" y="0" width="45" height="14" fill="#e8e8e8" stroke="#000" stroke-width="0.8" rx="2"/>
+      <text x="22" y="11" text-anchor="middle" font-size="7">GAP20</text>
+    </g>
+  </g>
+
+  <!-- ===================================================================================== -->
   <!-- ==================== DISCLAIMERS (right side) ==================== -->
-  <rect x="1380" y="15" width="400" height="400" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
-  <text x="1390" y="35" font-size="10" font-weight="bold">DISCLAIMERS</text>
+  <!-- ===================================================================================== -->
+  <g id="disclaimers" transform="translate(1520,15)">
+    <text x="0" y="14" font-size="8">Example shown with No. 2 DHW</text>
+    <text x="0" y="26" font-size="8">cylinders, however same control setup</text>
+    <text x="0" y="38" font-size="8">applies for additional cylinders.</text>
+    <text x="0" y="58" font-size="8">Fan Unit shown in profile, numbers of fans</text>
+    <text x="0" y="70" font-size="8">is presented in the technical</text>
+    <text x="0" y="82" font-size="8">documentation.</text>
 
-  <text x="1390" y="55" font-size="8">DHW priority from Master to Slave and</text>
-  <text x="1390" y="67" font-size="8">space heating priority from Slave to Master.</text>
+    <!-- Signal type legend -->
+    <text x="0" y="108" font-size="8">- - - - - - DI, DO, AI &amp; AO signals</text>
+    <line x1="0" y1="120" x2="80" y2="120" stroke="#0055cc" stroke-width="1.5" stroke-dasharray="6,3"/>
+    <text x="85" y="124" font-size="8">Modbus TCP/IP</text>
+    <line x1="0" y1="138" x2="80" y2="138" stroke="#009900" stroke-width="1.5" stroke-dasharray="8,3"/>
+    <text x="85" y="142" font-size="8">Modbus RTU</text>
 
-  <text x="1390" y="90" font-size="8">Example with electric boiler as</text>
-  <text x="1390" y="102" font-size="8">supplementary heat source. Solution may</text>
-  <text x="1390" y="114" font-size="8">vary due to country specific regulations.</text>
+    <text x="0" y="168" font-size="8">Components supplied</text>
+    <text x="0" y="180" font-size="8">by Qvantum</text>
+    <rect x="100" y="160" width="14" height="14" fill="#ffcccc" stroke="#cc0000" stroke-width="1"/>
+    <text x="120" y="172" font-size="7" fill="#cc0000">*</text>
 
-  <text x="1390" y="137" font-size="8">Depending on size of electric boiler</text>
-  <text x="1390" y="149" font-size="8">normally closed isolation valve or</text>
-  <text x="1390" y="161" font-size="8">balancing valve is used to direct flow over</text>
-  <text x="1390" y="173" font-size="8">the boiler.</text>
+    <text x="0" y="208" font-size="8">For measurements and other information</text>
+    <text x="0" y="220" font-size="8">regarding the heat pump, see separate</text>
+    <text x="0" y="232" font-size="8">documents and drawings.</text>
 
-  <text x="1390" y="196" font-size="8">Solution for DHW may vary due to country</text>
-  <text x="1390" y="208" font-size="8">specific regulations.</text>
+    <text x="0" y="258" font-size="8">For measurements and other information</text>
+    <text x="0" y="270" font-size="8">regarding the fan unit, see separate</text>
+    <text x="0" y="282" font-size="8">documents and drawings.</text>
 
-  <text x="1390" y="231" font-size="8">Example shown with No. 2 DHW</text>
-  <text x="1390" y="243" font-size="8">cylinders, however same control setup</text>
-  <text x="1390" y="255" font-size="8">applies for additional cylinders.</text>
+    <text x="0" y="308" font-size="8">Connections on evaporator and condenser</text>
+    <text x="0" y="320" font-size="8">are based on thin-walled copper pipe SS</text>
+    <text x="0" y="332" font-size="8">EN 1057 R290.</text>
 
-  <text x="1390" y="278" font-size="8">Fan Unit shown for profile, numbers of fans</text>
-  <text x="1390" y="290" font-size="8">is presented in the technical documentation.</text>
+    <text x="0" y="358" font-size="8">Pipe size on evaporator side is based on</text>
+    <text x="0" y="370" font-size="8">stainless steel EN 1.4301 (ISO).</text>
 
-  <text x="1390" y="313" font-size="8">For measurements and other information</text>
-  <text x="1390" y="325" font-size="8">regarding the heat pumps, see separate</text>
-  <text x="1390" y="337" font-size="8">documents and drawings.</text>
+    <text x="0" y="396" font-size="8">Pipe size on condenser side is based on</text>
+    <text x="0" y="408" font-size="8">Geberit Mapress Electro-galvanized Steel.</text>
+  </g>
 
-  <text x="1390" y="360" font-size="8">Connections on evaporator and condenser</text>
-  <text x="1390" y="372" font-size="8">are based on thin-walled copper pipe SS</text>
-  <text x="1390" y="384" font-size="8">EN 1057 R290.</text>
+  <!-- ===================================================================================== -->
+  <!-- ==================== COMPONENT SYMBOLS LEGEND ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="legend" transform="translate(1520,450)">
+    <rect x="-10" y="-15" width="280" height="210" fill="#fafafa" stroke="#000" stroke-width="0.8" rx="3"/>
+    <text x="0" y="0" font-size="11" font-weight="bold">COMPONENT SYMBOLS</text>
 
-  <text x="1390" y="400" font-size="8">Pipe size on evaporator side is based on</text>
-  <text x="1390" y="412" font-size="8">stainless steel EN 1.4301 (ISO).</text>
+    <!-- Circulation pump -->
+    <g transform="translate(10,20)">
+      <use href="#pump" x="0" y="0" width="28" height="28"/>
+      <text x="40" y="18" font-size="8.5">Circulation pump</text>
+    </g>
 
-  <!-- ==================== LEGEND ==================== -->
-  <!-- DI, DO, AI, AO legend -->
-  <rect x="1380" y="430" width="400" height="80" fill="#f0f8ff" stroke="#000" stroke-width="0.8"/>
-  <text x="1390" y="448" font-size="8" font-weight="bold">DI, DO, AI &amp; AO signals</text>
+    <!-- Temperature sensor -->
+    <g transform="translate(14,58)">
+      <use href="#tempSensor" x="0" y="0" width="20" height="20"/>
+      <text x="30" y="14" font-size="8.5">Temperature sensor</text>
+    </g>
 
-  <line x1="1390" y1="458" x2="1420" y2="458" stroke="#0066cc" stroke-width="2" stroke-dasharray="5,3"/>
-  <text x="1430" y="462" font-size="8">Modbus TCP/IP</text>
+    <!-- 3-way control valve -->
+    <g transform="translate(10,85)">
+      <use href="#valve3way" x="0" y="0" width="24" height="24"/>
+      <text x="40" y="16" font-size="8.5">3-way control valve</text>
+    </g>
 
-  <line x1="1390" y1="475" x2="1420" y2="475" stroke="#009900" stroke-width="2" stroke-dasharray="8,2"/>
-  <text x="1430" y="479" font-size="8">Modbus RTU</text>
+    <!-- Isolation valve -->
+    <g transform="translate(10,115)">
+      <use href="#isoValve" x="0" y="0" width="24" height="18"/>
+      <text x="40" y="12" font-size="8.5">Isolation valve</text>
+    </g>
 
-  <rect x="1390" y="488" width="25" height="12" fill="#e8e8e8" stroke="#000" stroke-width="1"/>
-  <text x="1430" y="498" font-size="8">Components supplied by Qvantum</text>
+    <!-- Non-return valve -->
+    <g transform="translate(10,140)">
+      <use href="#nrValve" x="0" y="0" width="24" height="18"/>
+      <text x="40" y="12" font-size="8.5">Non return valve</text>
+    </g>
 
-  <!-- ==================== COMPONENT SYMBOLS ==================== -->
-  <rect x="1380" y="520" width="400" height="200" fill="#fafafa" stroke="#000" stroke-width="0.8"/>
-  <text x="1390" y="540" font-size="10" font-weight="bold">COMPONENT SYMBOLS</text>
+    <!-- Strainer -->
+    <g transform="translate(12,165)">
+      <use href="#strainer" x="0" y="0" width="18" height="18"/>
+      <text x="30" y="12" font-size="8.5">Strainer</text>
+    </g>
+  </g>
 
-  <!-- Circulation pump -->
-  <circle cx="1405" cy="560" r="10" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="1398,567 1405,553 1412,567" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="1430" y="564" font-size="8">Circulation pump</text>
-
-  <!-- Temperature sensor -->
-  <circle cx="1405" cy="590" r="8" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="1405" y="593" text-anchor="middle" font-size="9" font-weight="bold">T</text>
-  <text x="1430" y="594" font-size="8">Temperature sensor</text>
-
-  <!-- 3-way control valve -->
-  <polygon points="1393,610 1417,618 1393,626" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="1417,610 1393,618 1417,626" fill="none" stroke="#000" stroke-width="1.2"/>
-  <line x1="1405" y1="605" x2="1405" y2="610" stroke="#000" stroke-width="1.2"/>
-  <text x="1430" y="622" font-size="8">3-way control valve</text>
-
-  <!-- Isolation valve -->
-  <polygon points="1393,640 1417,648 1393,656" fill="none" stroke="#000" stroke-width="1.2"/>
-  <polygon points="1417,640 1393,648 1417,656" fill="none" stroke="#000" stroke-width="1.2"/>
-  <text x="1430" y="652" font-size="8">Isolation valve</text>
-
-  <!-- Non-return valve -->
-  <polygon points="1393,668 1417,676 1393,684" fill="none" stroke="#000" stroke-width="1.2"/>
-  <line x1="1417" y1="668" x2="1417" y2="684" stroke="#000" stroke-width="1.2"/>
-  <text x="1430" y="680" font-size="8">Non return valve</text>
-
-  <!-- Strainer -->
-  <rect x="1393" y="694" width="16" height="16" fill="none" stroke="#000" stroke-width="1.2"/>
-  <line x1="1393" y1="694" x2="1409" y2="710" stroke="#000" stroke-width="1.2"/>
-  <text x="1430" y="706" font-size="8">Strainer</text>
-
+  <!-- ===================================================================================== -->
   <!-- ==================== PLEASE NOTE (bottom left) ==================== -->
-  <rect x="15" y="920" width="400" height="90" fill="#fff8f0" stroke="#000" stroke-width="0.8"/>
-  <text x="25" y="938" font-size="8" font-weight="bold">Please note:</text>
-  <text x="25" y="952" font-size="7">- This hydraulic schematic is a non-binding, schematic</text>
-  <text x="25" y="962" font-size="7">  proposal for the hydraulic integration of the LB4 unit.</text>
-  <text x="25" y="975" font-size="7">- This hydraulic schematic does not replace professional</text>
-  <text x="25" y="985" font-size="7">  planning and implementation. All applicable laws,</text>
-  <text x="25" y="995" font-size="7">  standards, and regulations must be adhered to.</text>
-  <text x="25" y="1005" font-size="7">- The representation of safety devices is not complete.</text>
+  <!-- ===================================================================================== -->
+  <g id="please-note" transform="translate(15,1080)">
+    <rect x="0" y="0" width="480" height="95" fill="#fff8f0" stroke="#000" stroke-width="0.8" rx="3"/>
+    <text x="10" y="16" font-size="8.5" font-weight="bold">Please note</text>
+    <text x="20" y="32" font-size="7.5">- This hydraulic schematic is a non-binding, schematic</text>
+    <text x="20" y="44" font-size="7.5">  proposal for the hydraulic integration of the LB4 unit.</text>
+    <text x="20" y="58" font-size="7.5">- This hydraulic schematic does not replace professional</text>
+    <text x="20" y="70" font-size="7.5">  planning and implementation, all applicable laws,</text>
+    <text x="20" y="82" font-size="7.5">  standards, and regulations must be adhered to.</text>
+    <text x="20" y="94" font-size="7.5">- The representation of safety devices is not complete.</text>
+  </g>
 
-  <!-- ==================== MASTER label tag ==================== -->
-  <rect x="1060" y="85" width="60" height="18" fill="#cc0000" stroke="#000" stroke-width="1" rx="2"/>
-  <text x="1090" y="97" text-anchor="middle" font-size="8" fill="white" font-weight="bold">MASTER</text>
+  <!-- LAGER SBR1 label -->
+  <text x="20" y="1190" font-size="7" fill="#999">LAGER SBR1</text>
 
-  <rect x="1060" y="105" width="60" height="18" fill="#0066cc" stroke="#000" stroke-width="1" rx="2"/>
-  <text x="1090" y="117" text-anchor="middle" font-size="8" fill="white" font-weight="bold">SLAVE</text>
+  <!-- ===================================================================================== -->
+  <!-- ==================== COPYRIGHT & TITLE BLOCK (bottom right) ==================== -->
+  <!-- ===================================================================================== -->
+  <g id="title-block">
+    <!-- Copyright notice -->
+    <text x="1520" y="680" font-size="7" fill="#999">Copyright notice ISO16016</text>
 
-  <!-- ==================== TITLE BLOCK (bottom right) ==================== -->
-  <rect x="1380" y="1100" width="400" height="80" fill="white" stroke="#000" stroke-width="2"/>
+    <!-- Qvantum logo block -->
+    <rect x="1520" y="1350" width="240" height="55" fill="white" stroke="#000" stroke-width="2"/>
+    <!-- Q logo circle -->
+    <circle cx="1548" cy="1370" r="16" fill="#006633" stroke="none"/>
+    <text x="1548" y="1377" text-anchor="middle" font-size="18" font-weight="bold" fill="white">Q</text>
+    <text x="1572" y="1368" font-size="14" font-weight="bold" fill="#006633" letter-spacing="2">VANTUM</text>
+    <text x="1572" y="1382" font-size="6.5" fill="#006633">HEAT PUMPS FOR SUSTAINABLE CITIES</text>
 
-  <!-- Qvantum logo area -->
-  <rect x="1380" y="1100" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
-  <text x="1400" y="1118" font-size="14" font-weight="bold" fill="#006633">Q</text>
-  <text x="1415" y="1118" font-size="12" font-weight="bold" fill="#006633">VANTUM</text>
-  <text x="1400" y="1132" font-size="7" fill="#006633">HEAT PUMPS FOR SUSTAINABLE CITIES</text>
+    <!-- Company details -->
+    <rect x="1520" y="1405" width="240" height="30" fill="white" stroke="#000" stroke-width="1"/>
+    <text x="1530" y="1418" font-size="8.5" font-weight="bold">QVANTUM ENERGI AB</text>
+    <text x="1530" y="1430" font-size="7.5">Ji-te gatan 7, 265 38 Astorp</text>
 
-  <!-- Company info -->
-  <rect x="1380" y="1140" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
-  <text x="1390" y="1155" font-size="8" font-weight="bold">QVANTUM ENERGI AB</text>
-  <text x="1390" y="1167" font-size="7">Jite gatan 7, 265 38 Astorp</text>
+    <!-- Drawing info -->
+    <rect x="1760" y="1350" width="230" height="55" fill="white" stroke="#000" stroke-width="2"/>
+    <text x="1770" y="1365" font-size="7" fill="#666">DRAWN BY</text>
+    <text x="1770" y="1380" font-size="11" font-weight="bold">JE</text>
+    <text x="1840" y="1365" font-size="7" fill="#666">DRAWING NUMBER</text>
+    <text x="1840" y="1382" font-size="10" font-weight="bold">Q-162-192-LB4-8-204</text>
 
-  <!-- Drawing info -->
-  <rect x="1580" y="1100" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
-  <text x="1590" y="1112" font-size="7">DRAWN BY</text>
-  <text x="1590" y="1125" font-size="10" font-weight="bold">JE</text>
-  <text x="1660" y="1112" font-size="7">DRAWING NUMBER</text>
-  <text x="1660" y="1125" font-size="9" font-weight="bold">Q-162-192-LB4-8-204</text>
+    <rect x="1760" y="1405" width="230" height="30" fill="white" stroke="#000" stroke-width="1"/>
+    <text x="1770" y="1418" font-size="7" fill="#666">PAGE NUMBER</text>
+    <text x="1770" y="1432" font-size="16" font-weight="bold">51</text>
+  </g>
 
-  <rect x="1580" y="1140" width="200" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
-  <text x="1590" y="1158" font-size="7">PAGE NUMBER</text>
-  <text x="1590" y="1172" font-size="14" font-weight="bold">51</text>
+  <!-- ===================================================================================== -->
+  <!-- ==================== ADDITIONAL PIPE DETAILS & VALVES ==================== -->
+  <!-- ===================================================================================== -->
 
-  <!-- Copyright -->
-  <text x="1400" y="1095" font-size="6" fill="#999">Copyright notice ISO16016</text>
+  <!-- Isolation valves on various pipe runs -->
+  <!-- HP02 hot side valve -->
+  <g transform="translate(660,440)">
+    <use href="#isoValve" x="0" y="0" width="16" height="12"/>
+  </g>
 
-  <!-- ==================== Pipe size note (bottom right area) ==================== -->
-  <text x="1390" y="760" font-size="8">Pipe size on condenser side is based on</text>
-  <text x="1390" y="772" font-size="8">Geberit Mapress Electro-galvanized Steel.</text>
+  <!-- HP01 hot side valve -->
+  <g transform="translate(660,830)">
+    <use href="#isoValve" x="0" y="0" width="16" height="12"/>
+  </g>
 
-  <!-- ==================== Additional piping connections ==================== -->
-  <!-- Vertical pipes connecting HP02 to heating system -->
-  <line x1="700" y1="480" x2="790" y2="500" stroke="#cc0000" stroke-width="2"/>
-  <line x1="720" y1="520" x2="790" y2="540" stroke="#0066cc" stroke-width="2"/>
+  <!-- Non-return valves on risers -->
+  <g transform="translate(726,550)">
+    <use href="#nrValve" x="0" y="0" width="14" height="12"/>
+  </g>
 
-  <!-- Heating buffer to secondary -->
-  <line x1="880" y1="530" x2="920" y2="530" stroke="#cc0000" stroke-width="2"/>
-  <line x1="880" y1="610" x2="920" y2="610" stroke="#0066cc" stroke-width="2"/>
+  <!-- Strainers on pump inlets -->
+  <g transform="translate(758,575)">
+    <use href="#strainer" x="0" y="0" width="12" height="12"/>
+  </g>
+  <g transform="translate(758,625)">
+    <use href="#strainer" x="0" y="0" width="12" height="12"/>
+  </g>
 
-  <!-- Space heating connections -->
-  <line x1="940" y1="450" x2="1000" y2="450" stroke="#cc0000" stroke-width="1.5"/>
-  <line x1="940" y1="600" x2="1000" y2="600" stroke="#0066cc" stroke-width="1.5"/>
+  <!-- DN65 pipe size labels -->
+  <text x="648" y="465" font-size="6.5" fill="#666">DN65</text>
+  <text x="648" y="855" font-size="6.5" fill="#666">DN65</text>
 
-  <!-- DHW priority piping -->
-  <line x1="1020" y1="400" x2="1070" y2="400" stroke="#cc0000" stroke-width="1.5"/>
-  <line x1="1090" y1="400" x2="1100" y2="430" stroke="#cc0000" stroke-width="1.5"/>
+  <!-- Flow direction arrows on main pipes -->
+  <polygon points="710,440 718,445 710,450" fill="#cc0000"/>
+  <polygon points="710,830 718,835 710,840" fill="#cc0000"/>
+  <polygon points="740,510 732,495 740,500" fill="#0055cc"/>
+  <polygon points="740,900 732,885 740,890" fill="#0055cc"/>
 
-  <!-- DHW system piping -->
-  <line x1="1120" y1="500" x2="1160" y2="500" stroke="#cc0000" stroke-width="2"/>
-  <line x1="1120" y1="550" x2="1160" y2="550" stroke="#0066cc" stroke-width="2"/>
-  <line x1="1120" y1="780" x2="1160" y2="780" stroke="#cc0000" stroke-width="2"/>
-  <line x1="1120" y1="830" x2="1160" y2="830" stroke="#0066cc" stroke-width="2"/>
+  <!-- Additional temperature sensors on piping -->
+  <!-- LThW-ST10 on vertical hot riser -->
+  <g transform="translate(735,470)">
+    <use href="#tempSensor" x="0" y="0" width="14" height="14"/>
+    <text x="16" y="5" font-size="6.5">LThW-</text>
+    <text x="16" y="14" font-size="6.5">ST10</text>
+  </g>
 
-  <!-- LAGER SBR1 note bottom left -->
-  <text x="20" y="1020" font-size="7" fill="#999">LAGER SBR1</text>
+  <!-- Valve indicators on DHW pipes -->
+  <g transform="translate(1260,690)">
+    <use href="#isoValve" x="0" y="0" width="14" height="10"/>
+  </g>
+  <g transform="translate(1260,750)">
+    <use href="#isoValve" x="0" y="0" width="14" height="10"/>
+  </g>
+
+  <!-- Asterisks for Qvantum-supplied components -->
+  <text x="118" y="435" font-size="12" fill="#cc0000">*</text>
+  <text x="118" y="825" font-size="12" fill="#cc0000">*</text>
+  <text x="770" y="590" font-size="12" fill="#cc0000">*</text>
+  <text x="770" y="640" font-size="12" fill="#cc0000">*</text>
 
 </svg>

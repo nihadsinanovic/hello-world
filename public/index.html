@@ -116,8 +116,8 @@
 
     .svg-container object {
       display: block;
-      width: 1800px;
-      height: 1200px;
+      width: 2400px;
+      height: 1500px;
     }
 
     footer {
@@ -185,7 +185,7 @@
     function fitToScreen() {
       const vw = viewer.clientWidth - 48;
       const vh = viewer.clientHeight - 48;
-      const fitScale = Math.min(vw / 1800, vh / 1200);
+      const fitScale = Math.min(vw / 2400, vh / 1500);
       setZoom(fitScale);
     }
 
